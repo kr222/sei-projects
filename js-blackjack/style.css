@@ -1,0 +1,16 @@
+/* css styling to align everything to center */
+body {
+  background-color: #006400;
+  font-family: "Crimson Text", serif;
+  font-size: 1.3em;
+  text-align: center;
+  padding: 20%;
+}
+/* resize card images */
+
+/* button styling (decide between class/id) */
+.button {
+  border: none;
+  padding: 25px;
+  font-size: 1.5em;
+}
