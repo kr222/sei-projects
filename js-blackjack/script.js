@@ -51,8 +51,8 @@ const createDeck = () => {
   // this for loop creates a sequential(unshuffled) deck by pushing to the deck array:
   // S(pades), H(earts), C(lubs), (D)iamonds for every:
   // value (A to K), resulting in [A-S, A-H, A-C, A-D...] and so on
-  for (value of values) {
-    for (suit of suits) {
+  for (const value of values) {
+    for (const suit of suits) {
       deck.push(value + "-" + suit);
     }
   }
@@ -115,6 +115,7 @@ const startGame = () => {
   }
 
   document.querySelector("#hit-button").addEventListener("click", hit);
+  document.querySelector("#stay-button").addEventListener("click", stay);
 };
 
 // function to check card values (i.e. JQK = 10, A = 11 or 1 etc.)
@@ -159,19 +160,44 @@ const hit = () => {
     console.log(
       `Player's hand value: ${playerHand}, Player's Ace count: ${playerAces}, Deck size: ${deck.length}`
     );
-  }
 
-  if (aceValue(playerHand, playerAces) > 21) {
-    lemmeHit === false;
+    if (aceValue(playerHand, playerAces) > 21) {
+      lemmeHit = false;
+    }
   }
 };
 
-const aceValue = (playerHand, playerAces) => {
-  while (playerHand > 21 && playerAces > 0) {
-    playerHand -= 10;
-    playerAces -= 1;
+const aceValue = (hand, aces) => {
+  while (hand > 21 && aces > 0) {
+    hand -= 10;
+    aces -= 1;
   }
-  return playerHand;
+  return hand;
+};
+
+const stay = () => {
+  dealerHand = aceValue(dealerHand, dealerAces);
+  playerHand = aceValue(playerHand, playerAces);
+  // prevent player from hitting after clicking stay
+  lemmeHit = false;
+  // reveal dealer's hidden card
+  document.querySelector("#dealer-cardback").src =
+    "./cards/png/" + dealerHidden + ".png";
+
+  let resultsText = "";
+  if (playerHand > 21) {
+    resultsText = "You lose";
+  } else if (dealerHand > 21) {
+    resultsText = "You win";
+  } else if (dealerHand === playerHand) {
+    resultsText = "It's a tie";
+  } else if (dealerHand < 21 && playerHand < 21 && dealerHand > playerHand) {
+    resultsText = "You lose";
+  } else if (dealerHand < 21 && playerHand < 21 && dealerHand < playerHand) {
+    resultsText = "You win";
+  }
+
+  console.log(`${resultsText}... dealer: ${dealerHand}, player: ${playerHand}`);
 };
 
 // to do:
