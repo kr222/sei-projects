@@ -85,6 +85,7 @@ const startGame = () => {
   // console.log(
   //   `Dealer's hidden card: ${dealerHidden}, Dealer's hand value: ${dealerHand}`
   // );
+
   // dealer must draw to 16
   while (dealerHand < 17) {
     let cardAsset = document.createElement("img");
@@ -98,6 +99,22 @@ const startGame = () => {
       `Dealer's hidden card: ${dealerHidden}, Dealer's hand value: ${dealerHand}, Dealer's Ace count: ${dealerAces}`
     );
   }
+
+  // player's initial 2 cards dealt
+  for (let i = 0; i < 2; i++) {
+    let cardAsset = document.createElement("img");
+    let card = deck.pop();
+    cardAsset.src = "./cards/png/" + card + ".png";
+    playerHand += getValue(card);
+    playerAces += checkAces(card);
+    document.querySelector("#player-cards").append(cardAsset);
+    // -[x] check if player's total hand value tallies up correctly
+    console.log(
+      `Player's hand value: ${playerHand}, Player's Ace count: ${playerAces}`
+    );
+  }
+
+  document.querySelector("#hit-button").addEventListener("click", hit);
 };
 
 // function to check card values (i.e. JQK = 10, A = 11 or 1 etc.)
@@ -127,6 +144,14 @@ const checkAces = (card) => {
   }
 };
 
+// function for player to hit
+const hit = () => {
+  if (lemmeHit === false) {
+    return;
+  }
+  deck.pop();
+};
+
 // to do:
 // - [x] variables to hold hand values for player and dealer (lines 1-5)
 // - [x] variables to check number of aces for player and dealer (lines 7-13)
@@ -137,7 +162,7 @@ const checkAces = (card) => {
 // - [x] function to parse data - card from deck -> split strings -> integers (lines 90-106)
 // - [x] function to check number of aces held in hand (lines 108-115)
 // - [x] game initialisation (lines 24-29)
-// - [] dealer must draw to 16
+// - [x] dealer must draw to 16 (lines 88-100)
 // - [] blackjack pays 3 to 2
 // - [] event listener for keypresses -> shift for hit, enter for stay (possibly add animations)
 
