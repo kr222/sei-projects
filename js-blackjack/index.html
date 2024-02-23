@@ -13,15 +13,23 @@
     <title>Document</title>
   </head>
   <body>
-    <!-- text for dealer + their hand value -->
+    <!-- text for dealer + their hand value + images of cards -->
     <h2>Dealer: <span id="dealer-hand">0</span></h2>
-    <!-- text for self + current hand value  -->
+    <div class="card-display" id="dealer-cards">
+      <!-- since dealer always has 1 card hidden, the card back is hardcoded here -->
+      <img id="dealer-cardback" src="cards/png/1B.png" />
+    </div>
+    <!-- text for self + current hand value + images of cards  -->
     <h2>Player: <span id="player-hand">0</span></h2>
-    <!-- card images for respective players -->
+    <div class="card-display" id="player-cards"></div>
+    <br />
     <!-- button for hit -->
-    <button class="button">Hit</button>
+    <button id="hit-button">Hit</button>
     <!-- button for stay -->
-    <button class="button">Stay</button>
+    <button id="stay-button">Stay</button>
+    <!-- results of game printed here after hitting stay, reaching a tie, or busting -->
+    <p id="results"></p>
+
     <script src="script.js"></script>
   </body>
 </html>

@@ -1,16 +1,43 @@
-/* css styling to align everything to center */
+/* css styling for custom font, and to align everything to center */
 body {
   background-color: #006400;
   font-family: "Crimson Text", serif;
   font-size: 1.3em;
   text-align: center;
-  padding: 20%;
+  padding: 0%;
 }
 /* resize card images */
+.card-display {
+  transform: scale(0.75);
+}
 
 /* button styling (decide between class/id) */
-.button {
+button {
   border: none;
+  cursor: pointer;
   padding: 25px;
-  font-size: 1.5em;
+  font-size: 1.4em;
+  width: 17%;
+  margin: 2.5%;
+  border-radius: 8px;
+  transition-duration: 0.3s;
+}
+
+button:hover {
+  background-color: blue;
+  color: white;
+}
+
+button:active {
+  /* background-color: red; */
+  transform: translate(5px);
+  transition-duration: 0.05s;
+}
+
+#hit-button {
+  cursor: grab;
+}
+
+#hit-button:active {
+  cursor: grabbing;
 }
