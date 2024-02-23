@@ -148,8 +148,30 @@ const checkAces = (card) => {
 const hit = () => {
   if (lemmeHit === false) {
     return;
+  } else {
+    let cardAsset = document.createElement("img");
+    let card = deck.pop();
+    cardAsset.src = "./cards/png/" + card + ".png";
+    playerHand += getValue(card);
+    playerAces += checkAces(card);
+    document.querySelector("#player-cards").append(cardAsset);
+    // -[x] check if player's total hand value tallies up correctly
+    console.log(
+      `Player's hand value: ${playerHand}, Player's Ace count: ${playerAces}, Deck size: ${deck.length}`
+    );
   }
-  deck.pop();
+
+  if (aceValue(playerHand, playerAces) > 21) {
+    lemmeHit === false;
+  }
+};
+
+const aceValue = (playerHand, playerAces) => {
+  while (playerHand > 21 && playerAces > 0) {
+    playerHand -= 10;
+    playerAces -= 1;
+  }
+  return playerHand;
 };
 
 // to do:
