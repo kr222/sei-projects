@@ -82,9 +82,9 @@ const startGame = () => {
   dealerHand += getValue(dealerHidden);
   dealerAces += checkAces(dealerHidden);
   // check if dealer's hidden card and their hand value has been assigned correctly
-  console.log(
-    `Dealer's hidden card: ${dealerHidden}, Dealer's hand value: ${dealerHand}`
-  );
+  // console.log(
+  //   `Dealer's hidden card: ${dealerHidden}, Dealer's hand value: ${dealerHand}`
+  // );
   // dealer must draw to 16
   while (dealerHand < 17) {
     let cardAsset = document.createElement("img");
@@ -93,6 +93,10 @@ const startGame = () => {
     dealerHand += getValue(card);
     dealerAces += checkAces(card);
     document.querySelector("#dealer-cards").append(cardAsset);
+    // check if dealer's total hand value tallies up correctly
+    console.log(
+      `Dealer's hidden card: ${dealerHidden}, Dealer's hand value: ${dealerHand}, Dealer's Ace count: ${dealerAces}`
+    );
   }
 };
 
@@ -145,3 +149,4 @@ const checkAces = (card) => {
 // -sound effects
 // -card back selector
 // -table themes (different colours for the felt table surface, buttons, and fonts)
+// -poker game
