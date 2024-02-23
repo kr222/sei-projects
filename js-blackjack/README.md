@@ -16,11 +16,12 @@ to do:
 - [ ] event listener for keypresses -> shift for hit, enter for stay (possibly add animations)
 
 future improvements/ stretch goals:
--combine multiple decks to draw from [possible to have duplicate cards (no. of duplicates depends on no. of decks)]
--play multiple hands
--bet on pair occurring in the first 2 cards dealt (decrease bank if no pair, add bank if pair)
--option to split hand and play them seperately if dealt a pair
--sound effects
--card back selector
--table themes (different colours for the felt table surface, buttons, and fonts)
--poker game
+
+- combine multiple decks to draw from [possible to have duplicate cards (no. of duplicates depends on no. of decks)]
+- play multiple hands
+- bet on pair occurring in the first 2 cards dealt (decrease bank if no pair, add bank if pair)
+- option to split hand and play them seperately if dealt a pair
+- sound effects
+- card back selector
+- table themes (different colours for the felt table surface, buttons, and fonts)
+- poker game
