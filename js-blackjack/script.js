@@ -1,3 +1,6 @@
+// variable for bank
+let cashMoney = 0;
+
 // variable for dealer hand total value
 let dealerHand = 0;
 
@@ -22,7 +25,34 @@ let deck;
 let lemmeHit = true;
 
 // init on window load - build deck function, shuffle deck function, and start game function (possibly add a button to restart everything)
-window.onload = () => {
+
+const initialisation = () => {
+  createDeck();
+  shuffleDeck();
+  startGame();
+};
+
+window.onload = initialisation;
+
+// function to start next hand by resetting everything
+const nextHand = () => {
+  document.querySelector("#player-cards").innerHTML = "";
+  document.querySelector("#dealer-cards").innerHTML =
+    "<img id='dealer-cardback' src='./cards/png/1B.png'>";
+  // document.querySelector("#dealer-cardback").src = "./cards/png/1B.png";
+  lemmeHit = true;
+  playerHand = 0;
+  playerAces = 0;
+  dealerHidden = 0;
+  dealerHand = 0;
+  dealerAces = 0;
+  document.querySelector("#dealer-hand").innerText = "";
+  document.querySelector("#player-hand").innerText = "";
+  document.querySelector("#results").innerText = "";
+  document.querySelector("#next-hand-button").classList.add("hide");
+  document.querySelector("#hit-button").classList.remove("hide");
+  document.querySelector("#stay-button").classList.remove("hide");
+  console.log(`dealer ${dealerHand}, player ${playerHand}`);
   createDeck();
   shuffleDeck();
   startGame();
@@ -110,12 +140,15 @@ const startGame = () => {
     document.querySelector("#player-cards").append(cardAsset);
     // -[x] check if player's total hand value tallies up correctly
     console.log(
-      `Player's hand value: ${playerHand}, Player's Ace count: ${playerAces}`
+      `Player's hand value: ${playerHand}, Player's Ace count: ${playerAces}, Deck: ${deck.length}`
     );
   }
-
+  // button functionality
   document.querySelector("#hit-button").addEventListener("click", hit);
   document.querySelector("#stay-button").addEventListener("click", stay);
+  document
+    .querySelector("#next-hand-button")
+    .addEventListener("click", nextHand);
 };
 
 // function to check card values (i.e. JQK = 10, A = 11 or 1 etc.)
@@ -158,7 +191,7 @@ const hit = () => {
     document.querySelector("#player-cards").append(cardAsset);
     // -[x] check if player's total hand value tallies up correctly
     console.log(
-      `Player's hand value: ${playerHand}, Player's Ace count: ${playerAces}, Deck size: ${deck.length}`
+      `Player's hand : ${playerHand}, Player's Ace count: ${playerAces}`
     );
 
     if (aceValue(playerHand, playerAces) > 21) {
@@ -191,12 +224,17 @@ const stay = () => {
     resultsText = "You win";
   } else if (dealerHand === playerHand) {
     resultsText = "It's a tie";
-  } else if (dealerHand < 21 && playerHand < 21 && dealerHand > playerHand) {
+  } else if (dealerHand <= 21 && playerHand < 21 && dealerHand > playerHand) {
     resultsText = "You lose";
-  } else if (dealerHand < 21 && playerHand < 21 && dealerHand < playerHand) {
+  } else if (dealerHand < 21 && playerHand <= 21 && dealerHand < playerHand) {
     resultsText = "You win";
   }
-
+  document.querySelector("#dealer-hand").innerText = dealerHand;
+  document.querySelector("#player-hand").innerText = playerHand;
+  document.querySelector("#results").innerText = resultsText;
+  document.querySelector("#next-hand-button").classList.remove("hide");
+  document.querySelector("#hit-button").classList.add("hide");
+  document.querySelector("#stay-button").classList.add("hide");
   console.log(`${resultsText}... dealer: ${dealerHand}, player: ${playerHand}`);
 };
 
