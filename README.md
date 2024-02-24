@@ -6,7 +6,7 @@
 
 1. [js-blackjack](https://kr222.github.io/sei-projects/js-blackjack) (WIP)
 
-   > Basic Blackjack game written in Javascript
+   > Basic Blackjack game written in Javascript.
 
 2. TBC
 
