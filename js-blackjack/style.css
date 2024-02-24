@@ -8,7 +8,8 @@ body {
 }
 /* resize card images */
 .card-display {
-  transform: scale(0.75);
+  transform: scale(0.6);
+  height: 210px;
 }
 
 /* button styling (decide between class/id) */
@@ -40,4 +41,8 @@ button:active {
 
 #hit-button:active {
   cursor: grabbing;
+}
+
+.hide {
+  display: none;
 }
