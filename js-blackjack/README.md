@@ -1,4 +1,4 @@
-Javascript Blackjack
+# Javascript Blackjack
 
 to do:
 
@@ -11,8 +11,7 @@ to do:
 - [x] function to parse data - card from deck -> split strings -> integers (lines 90-106)
 - [x] function to check number of aces held in hand (lines 108-115)
 - [x] game initialisation (lines 24-29)
-- [ ]
-- [ ] dealer must draw to 16
+- [x] dealer must draw to 16
 - [ ] blackjack pays 3 to 2
 - [ ] event listener for keypresses -> shift for hit, enter for stay (possibly add animations)
 
@@ -26,3 +25,5 @@ future improvements/ stretch goals:
 - card back selector
 - table themes (different colours for the felt table surface, buttons, and fonts)
 - poker game
+
+n
