@@ -13,32 +13,55 @@
     <title>Javascript Blackjack</title>
     <link rel="icon" type="image/x-icon" href="assets/card-favicon.svg" />
   </head>
-    
-    <!-- text for dealer + their hand value + images of cards -->
+
+  <body>
+    <!-- text for dealer + their hand value + images of cards
     <h2>Dealer: <span id="dealer-hand"></span></h2>
     <div class="card-display" id="dealer-cards">
-    <!-- since dealer always has 1 card hidden, the card back is hardcoded here -->
-    <img id="dealer-cardback" src="cards/png/1B.png" />
+      since dealer always has 1 card hidden, the card back is hardcoded here
+      <img id="dealer-cardback" src="cards/png/1B.png" />
     </div>
-    
-    <!-- text for self + current hand value + images of cards  -->
+
+    text for self + current hand value + images of cards 
     <h2>Player: <span id="player-hand"></span></h2>
     <div class="card-display" id="player-cards"></div>
     <br />
-    
-   <!-- results of game printed here after hitting stay, reaching a tie, or busting -->
-   
-   <p id="results"></p>
-    <!-- button for hit -->
-    <button id="hit-button">Hit</button>
-    <!-- button for stay -->
-    <button id="stay-button">Stay</button>
-    <!-- button for starting a new hand (hidden before ending game) -->
-    <button id="next-hand-button" class="hide">Next hand</button>
 
-   
-    
-  
+    results of game printed here after hitting stay, reaching a tie, or busting
+
+    <p id="results"></p>
+    button for hit
+    <button id="hit-button">Hit</button>
+    button for stay
+    <button id="stay-button">Stay</button>
+    button for starting a new hand (hidden before ending game)
+    <button id="next-hand-button" class="hide">Next hand</button> -->
+
+    <div class="flexbox-container">
+      <div class="flexbox-item flexbox-item-1">
+        <!-- text for dealer + their hand value + images of  -->
+        <h2>Dealer: <span id="dealer-hand"></span></h2>
+        <div class="card-display" id="dealer-cards">
+          <!--since dealer always has 1 card hidden, the card back is hardcoded here -->
+          <img id="dealer-cardback" src="cards/png/1B.png" />
+        </div>
+        <!-- text for self + current hand value + images of cards  -->
+        <h2>Player: <span id="player-hand"></span></h2>
+        <div class="card-display" id="player-cards"></div>
+      </div>
+
+      <div class="flexbox-item flexbox-item-2">
+        <!-- results of game printed here after hitting stay, reaching a tie, or busting -->
+        <p id="results"></p>
+        <!-- button for hit -->
+        <button id="hit-button">Hit</button>
+        <!-- button for stay -->
+        <button id="stay-button">Stay</button>
+        <!-- button for starting a new hand (hidden before ending game) -->
+        <button id="next-hand-button" class="hide">Next hand</button>
+      </div>
+    </div>
+
     <script src="script.js"></script>
   </body>
 </html>
