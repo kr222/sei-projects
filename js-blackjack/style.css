@@ -2,23 +2,66 @@
 body {
   background-color: #006400;
   font-family: "Crimson Text", serif;
-  font-size: 1.3em;
-  text-align: center;
+  font-size: 1.4em;
   padding: 0%;
 }
+
+.flexbox-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.flexbox-item {
+  border: 3px solid #333;
+}
+
+.flexbox-item-1 {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: left;
+  /* justify-content: left; */
+  align-content: flex-start;
+  /* min-height: 50%; */
+  min-width: 80%;
+}
+.flexbox-item-2 {
+  display: flex;
+  flex-direction: column;
+  height: 550px;
+  justify-content: center;
+  text-align: center;
+  /* min-height: 50%;
+  min-width: 30%; */
+}
+
+.flexbox-item-2 button {
+  margin-right: 10px;
+}
+
+.flexbox-item-1 h2 {
+  margin-left: 5%;
+}
+
+.flexbox-item-1 .card-display {
+  margin-left: 10%;
+}
+
 /* resize card images */
-.card-display {
-  transform: scale(0.6);
-  height: 210px;
+.flexbox-item-1 .card-display img {
+  /* transform: scale(0.6); */
+  /* height: 200px; */
+  width: 120px;
 }
 
 /* button styling (decide between class/id) */
 button {
   border: none;
   cursor: pointer;
-  padding: 25px;
+  padding: 20px;
   font-size: 1.4em;
-  width: 17%;
+  width: 220px;
   margin: 2.5%;
   border-radius: 8px;
   transition-duration: 0.3s;
@@ -37,6 +80,7 @@ button:active {
 
 #hit-button {
   cursor: grab;
+  /* width: 200px; */
 }
 
 #hit-button:active {
@@ -45,4 +89,8 @@ button:active {
 
 .hide {
   display: none;
+}
+
+#results {
+  font-size: 1.5em;
 }
