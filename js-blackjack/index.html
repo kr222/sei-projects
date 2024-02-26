@@ -51,6 +51,7 @@
       </div>
 
       <div class="flexbox-item flexbox-item-2">
+        <h3>Bank: <span id="bankAmount"></span></h3>
         <!-- results of game printed here after hitting stay, reaching a tie, or busting -->
         <p id="results"></p>
         <!-- button for hit -->
@@ -59,6 +60,13 @@
         <button id="stay-button">Stay</button>
         <!-- button for starting a new hand (hidden before ending game) -->
         <button id="next-hand-button" class="hide">Next hand</button>
+        <input
+          type="number"
+          placeholder="Top up amount"
+          id="top-up-input"
+          class="hide"
+        />
+        <button id="top-up-button" class="hide">Top up</button>
       </div>
     </div>
 
