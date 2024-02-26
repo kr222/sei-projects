@@ -1,6 +1,7 @@
 // variable for bank
 let cashMoney = 22;
 document.querySelector("#bankAmount").innerText = cashMoney;
+
 // variable for dealer hand total value
 let dealerHand = 0;
 
@@ -40,11 +41,6 @@ const topUpBank = () => {
   document.querySelector("#bankAmount").innerText = cashMoney;
   startGame();
   nextHand();
-  console.log(
-    `bank: ${cashMoney}, input value: ${
-      document.querySelector("#top-up-input").value
-    }`
-  );
 };
 
 // function to start next hand by resetting everything
@@ -65,7 +61,6 @@ const nextHand = () => {
   document.querySelector("#next-hand-button").classList.add("hide");
   document.querySelector("#hit-button").classList.remove("hide");
   document.querySelector("#stay-button").classList.remove("hide");
-  console.log(`dealer ${dealerHand}, player ${playerHand}`);
   createDeck();
   shuffleDeck();
   startGame();
@@ -267,6 +262,6 @@ const stay = () => {
   document.querySelector("#hit-button").classList.add("hide");
   document.querySelector("#stay-button").classList.add("hide");
   console.log(
-    `${resultsText}... dealer: ${dealerHand}, player: ${playerHand}, ${cashMoney}`
+    `${resultsText}... dealer: ${dealerHand}, player: ${playerHand}, remaining bank: ${cashMoney}`
   );
 };
