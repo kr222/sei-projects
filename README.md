@@ -4,7 +4,7 @@
 
 ## Projects:
 
-1. [js-blackjack](https://kr222.github.io/sei-projects/tree/main/js-blackjack)
+1. [js-blackjack](https://github.com/kr222/sei-projects/tree/main/js-blackjack)
 
    > Basic Blackjack game written in Javascript.
 
