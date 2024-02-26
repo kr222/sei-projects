@@ -1,4 +1,4 @@
-# Javascript Blackjack
+# [Javascript Blackjack](https://kr222.github.io/sei-projects/js-blackjack)
 
 to do:
 
@@ -11,19 +11,65 @@ to do:
 - [x] function to parse data - card from deck -> split strings -> integers (lines 90-106)
 - [x] function to check number of aces held in hand (lines 108-115)
 - [x] game initialisation (lines 24-29)
-- [x] dealer must draw to 16
-- [ ] blackjack pays 3 to 2
-- [ ] event listener for keypresses -> shift for hit, enter for stay (possibly add animations)
+- [x] dealer must draw to 16 (lines 88-100)
+- [x] add bank functionality
+- [] blackjack pays 3 to 2
 
-future improvements/ stretch goals:
+## known bugs
 
-- combine multiple decks to draw from [possible to have duplicate cards (no. of duplicates depends on no. of decks)]
+- dealer sometimes doesn't draw past 16 if holding ace
+
+## future improvements/ stretch goals:
+
+- bet amount
+- end game when busting from hitting cards
+- combine multiple decks to draw from (possible to have duplicate cards [no. of duplicates depends on no. of decks]
 - play multiple hands
 - bet on pair occurring in the first 2 cards dealt (decrease bank if no pair, add bank if pair)
 - option to split hand and play them seperately if dealt a pair
+- make css nicer
+- tidy up js
+- event listener for keypresses -> shift for hit, enter for stay (possibly add animations)
 - sound effects
 - card back selector
 - table themes (different colours for the felt table surface, buttons, and fonts)
 - poker game
 
-n
+## presentation
+
+- 10 mins only
+- demo game
+- talk about that codes that were interesting, irritation, weird, etc to you
+
+## deliverables
+
+- codes (commit and push before 9:30am, Tuesday 27th Feb)
+- readme.md -> due before 10:00pm, Tuesday 27th Feb
+- remember to add the link to your deployed game to project tracker and readme
+
+## noteworthy code
+
+- create deck and shuffle deck (lines 75-116)
+- function to get card values (lines 177-193)
+- button functionality code (lines 151-175)
+
+## interesting/fun
+
+- using css to make things nice (animations, colours, eventListeners)
+- parseInt() function
+- Math.floor(Math.random())
+- document.querySelector
+- classList.add and classList.remove
+- if else, while loop, for loop
+
+## irritations
+
+- coming up with names for variables
+- using css after a few hours to make things look passable (i still don't fully understand flexbox)
+- aligning things in css
+- console.log() -ing every step to see if anything broke
+- code doesn't work the way my brain works sometimes
+
+## weird
+
+-how difficult it is to draw a line of text over a curved surface
