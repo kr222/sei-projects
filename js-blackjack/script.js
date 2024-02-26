@@ -1,6 +1,6 @@
 // variable for bank
-let cashMoney = 0;
-
+let cashMoney = 22;
+document.querySelector("#bankAmount").innerText = cashMoney;
 // variable for dealer hand total value
 let dealerHand = 0;
 
@@ -23,9 +23,9 @@ let deck;
 
 // variable for allowing you to hit - true as long as your hand value is < 21
 let lemmeHit = true;
+let lemmeStay = true;
 
 // init on window load - build deck function, shuffle deck function, and start game function (possibly add a button to restart everything)
-
 const initialisation = () => {
   createDeck();
   shuffleDeck();
@@ -34,13 +34,26 @@ const initialisation = () => {
 
 window.onload = initialisation;
 
+// function to top up amount input to bank
+const topUpBank = () => {
+  cashMoney += parseInt(document.querySelector("#top-up-input").value);
+  document.querySelector("#bankAmount").innerText = cashMoney;
+  startGame();
+  nextHand();
+  console.log(
+    `bank: ${cashMoney}, input value: ${
+      document.querySelector("#top-up-input").value
+    }`
+  );
+};
+
 // function to start next hand by resetting everything
 const nextHand = () => {
   document.querySelector("#player-cards").innerHTML = "";
   document.querySelector("#dealer-cards").innerHTML =
     "<img id='dealer-cardback' src='./cards/png/1B.png'>";
-  // document.querySelector("#dealer-cardback").src = "./cards/png/1B.png";
   lemmeHit = true;
+  lemmeStay = true;
   playerHand = 0;
   playerAces = 0;
   dealerHidden = 0;
@@ -86,8 +99,6 @@ const createDeck = () => {
       deck.push(value + "-" + suit);
     }
   }
-  // check if deck array exists with 52 cards in sequential order
-  // console.log(deck);
 };
 
 // function to shuffle deck
@@ -111,10 +122,6 @@ const startGame = () => {
   // runs a function to check the numerical value of the hidden card for the total value counter
   dealerHand += getValue(dealerHidden);
   dealerAces += checkAces(dealerHidden);
-  // check if dealer's hidden card and their hand value has been assigned correctly
-  // console.log(
-  //   `Dealer's hidden card: ${dealerHidden}, Dealer's hand value: ${dealerHand}`
-  // );
 
   // dealer must draw to 16
   while (dealerHand < 17) {
@@ -138,17 +145,32 @@ const startGame = () => {
     playerHand += getValue(card);
     playerAces += checkAces(card);
     document.querySelector("#player-cards").append(cardAsset);
-    // -[x] check if player's total hand value tallies up correctly
-    console.log(
-      `Player's hand value: ${playerHand}, Player's Ace count: ${playerAces}, Deck: ${deck.length}`
-    );
   }
+
   // button functionality
   document.querySelector("#hit-button").addEventListener("click", hit);
   document.querySelector("#stay-button").addEventListener("click", stay);
   document
     .querySelector("#next-hand-button")
     .addEventListener("click", nextHand);
+  document.querySelector("#top-up-button").addEventListener("click", topUpBank);
+
+  // if bank is lower than a specified value, prevent player from hitting/staying and prompt with a "top up bank" input. once a certain bank amount has been reached, continue game
+  if (cashMoney <= 20) {
+    lemmeHit = false;
+    lemmeStay = false;
+    document.querySelector("#top-up-input").classList.remove("hide");
+    document.querySelector("#top-up-button").classList.remove("hide");
+    document.querySelector("#hit-button").classList.add("hide");
+    document.querySelector("#stay-button").classList.add("hide");
+  } else {
+    lemmeHit = true;
+    lemmeStay = true;
+    document.querySelector("#top-up-input").classList.add("hide");
+    document.querySelector("#top-up-button").classList.add("hide");
+    document.querySelector("#hit-button").classList.remove("hide");
+    document.querySelector("#stay-button").classList.remove("hide");
+  }
 };
 
 // function to check card values (i.e. JQK = 10, A = 11 or 1 etc.)
@@ -189,10 +211,6 @@ const hit = () => {
     playerHand += getValue(card);
     playerAces += checkAces(card);
     document.querySelector("#player-cards").append(cardAsset);
-    // -[x] check if player's total hand value tallies up correctly
-    console.log(
-      `Player's hand : ${playerHand}, Player's Ace count: ${playerAces}`
-    );
 
     if (aceValue(playerHand, playerAces) > 21) {
       lemmeHit = false;
@@ -200,6 +218,7 @@ const hit = () => {
   }
 };
 
+// function to calculate hand value based on no. of aces in hand
 const aceValue = (hand, aces) => {
   while (hand > 21 && aces > 0) {
     hand -= 10;
@@ -208,7 +227,11 @@ const aceValue = (hand, aces) => {
   return hand;
 };
 
+// function to stay
 const stay = () => {
+  if (lemmeStay === false) {
+    return;
+  }
   dealerHand = aceValue(dealerHand, dealerAces);
   playerHand = aceValue(playerHand, playerAces);
   // prevent player from hitting after clicking stay
@@ -220,44 +243,30 @@ const stay = () => {
   let resultsText = "";
   if (playerHand > 21) {
     resultsText = "You lose";
+    cashMoney -= 5;
   } else if (dealerHand > 21) {
     resultsText = "You win";
+    cashMoney += 5;
   } else if (dealerHand === playerHand) {
     resultsText = "It's a tie";
   } else if (dealerHand <= 21 && playerHand < 21 && dealerHand > playerHand) {
     resultsText = "You lose";
+    cashMoney -= 5;
   } else if (dealerHand < 21 && playerHand <= 21 && dealerHand < playerHand) {
     resultsText = "You win";
+    cashMoney += 5;
   }
+
+  if (lemmeHit === false) {
+  }
+  document.querySelector("#bankAmount").innerText = cashMoney;
   document.querySelector("#dealer-hand").innerText = dealerHand;
   document.querySelector("#player-hand").innerText = playerHand;
   document.querySelector("#results").innerText = resultsText;
   document.querySelector("#next-hand-button").classList.remove("hide");
   document.querySelector("#hit-button").classList.add("hide");
   document.querySelector("#stay-button").classList.add("hide");
-  console.log(`${resultsText}... dealer: ${dealerHand}, player: ${playerHand}`);
+  console.log(
+    `${resultsText}... dealer: ${dealerHand}, player: ${playerHand}, ${cashMoney}`
+  );
 };
-
-// to do:
-// - [x] variables to hold hand values for player and dealer (lines 1-5)
-// - [x] variables to check number of aces for player and dealer (lines 7-13)
-// - [x] hidden dealer card variable to store value without displaying it (lines 15-16)
-// - [x] array to store deck of cards, and function to shuffle it (lines 31-75)
-// - [x] boolean variable to allow you to hit <draw another card> (lines 21-22)
-// - [x] function to start game (lines 77-88)
-// - [x] function to parse data - card from deck -> split strings -> integers (lines 90-106)
-// - [x] function to check number of aces held in hand (lines 108-115)
-// - [x] game initialisation (lines 24-29)
-// - [x] dealer must draw to 16 (lines 88-100)
-// - [] blackjack pays 3 to 2
-// - [] event listener for keypresses -> shift for hit, enter for stay (possibly add animations)
-
-// future improvements/ stretch goals:
-// -combine multiple decks to draw from (possible to have duplicate cards [no. of duplicates depends on no. of decks]
-// -play multiple hands
-// -bet on pair occurring in the first 2 cards dealt (decrease bank if no pair, add bank if pair)
-// -option to split hand and play them seperately if dealt a pair
-// -sound effects
-// -card back selector
-// -table themes (different colours for the felt table surface, buttons, and fonts)
-// -poker game
