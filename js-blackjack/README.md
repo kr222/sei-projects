@@ -13,7 +13,7 @@ to do:
 - [x] game initialisation (lines 24-29)
 - [x] dealer must draw to 16 (lines 88-100)
 - [x] add bank functionality
-- [] blackjack pays 3 to 2
+- [ ] blackjack pays 3 to 2
 
 ## known bugs
 
