@@ -1,6 +1,6 @@
-# [Javascript Blackjack (click me 🥺👉🏽👈🏽)](https://kr222.github.io/sei-projects/js-blackjack)
+# [Javascript Blackjack (click me 🥺👉👈)](https://kr222.github.io/sei-projects/js-blackjack)
 
-to do:
+## to do:
 
 - [x] variables to hold hand values for player and dealer (lines 1-5)
 - [x] variables to check number of aces for player and dealer (lines 7-13)
@@ -13,10 +13,13 @@ to do:
 - [x] game initialisation (lines 24-29)
 - [x] dealer must draw to 16 (lines 88-100)
 - [x] add bank functionality
+- [ ] tidy up this readme before wednesday night
 
 ## known bugs
 
-- dealer sometimes doesn't draw past 16 if holding ace
+- dealer sometimes doesn't draw past 16 if they're holding an ace
+- bank amount code breaks if input box is left blank when clicking "top up"
+- hands refresh after clicking top up (yes you will lose your amazing hand)
 
 ## future improvements/ stretch goals:
 
@@ -33,13 +36,14 @@ to do:
 - sound effects
 - card back selector
 - table themes (different colours for the felt table surface, buttons, and fonts)
+- use .svg files instead of .png files for cards to reduce filesize
 - poker game
 
 ## presentation
 
 - 10 mins only
 - demo game
-- talk about that codes that were interesting, irritation, weird, etc to you
+- talk about that codes that were interesting, irritating, weird, etc to you
 
 ## deliverables
 
@@ -50,13 +54,15 @@ to do:
 ## noteworthy code
 
 - create deck and shuffle deck (lines 75-116)
-- function to get card values (lines 177-193)
+- function to get card values and ace counter (lines 177-202)
 - button functionality code (lines 151-175)
+- game "reset" mechanism through a function (lines 45-66)
 - css button:hover and button:active can change the cursor, on top of animating the button
 
 ## interesting/fun
 
 - using css to make things nice (animations, colours, eventListeners)
+- indenting the cards to resemble lines of code
 - parseInt() function
 - Math.floor(Math.random())
 - document.querySelector
@@ -73,4 +79,4 @@ to do:
 
 ## weird
 
-- how difficult it is to draw a line of text over a curved surface
+- how difficult it is to draw a line of text over a curved axis
