@@ -1,4 +1,4 @@
-# [Javascript Blackjack](https://kr222.github.io/sei-projects/js-blackjack)
+# [Javascript Blackjack (click me 🥺👉🏽👈🏽)](https://kr222.github.io/sei-projects/js-blackjack)
 
 to do:
 
@@ -13,7 +13,6 @@ to do:
 - [x] game initialisation (lines 24-29)
 - [x] dealer must draw to 16 (lines 88-100)
 - [x] add bank functionality
-- [ ] blackjack pays 3 to 2
 
 ## known bugs
 
@@ -21,7 +20,8 @@ to do:
 
 ## future improvements/ stretch goals:
 
-- bet amount
+- change bet amount using input
+- blackjack pays 3 to 2
 - end game when busting from hitting cards
 - combine multiple decks to draw from (possible to have duplicate cards [no. of duplicates depends on no. of decks]
 - play multiple hands
@@ -44,7 +44,7 @@ to do:
 ## deliverables
 
 - codes (commit and push before 9:30am, Tuesday 27th Feb)
-- readme.md -> due before 10:00pm, Tuesday 27th Feb
+- readme.md -> due before 10:00pm, Wednesday 28th Feb
 - remember to add the link to your deployed game to project tracker and readme
 
 ## noteworthy code
@@ -52,6 +52,7 @@ to do:
 - create deck and shuffle deck (lines 75-116)
 - function to get card values (lines 177-193)
 - button functionality code (lines 151-175)
+- css button:hover and button:active can change the cursor, on top of animating the button
 
 ## interesting/fun
 
@@ -72,4 +73,4 @@ to do:
 
 ## weird
 
--how difficult it is to draw a line of text over a curved surface
+- how difficult it is to draw a line of text over a curved surface
