@@ -1,8 +1,26 @@
 # Javascript Blackjack
 
 ## Screenshots
+- Starting the game
 ![Game Start](https://github.com/kr222/sei-projects/assets/59068114/e7c10538-ea9c-459a-872d-6ab95204eb3e)
+
+- Choosing 'Hit'
+![Hit](https://github.com/kr222/sei-projects/assets/59068114/fa3e94a8-81e9-4fac-9dab-0c4e02592537)
+
+- Choosing 'Stay'
+![Stay](https://github.com/kr222/sei-projects/assets/59068114/8eb535e6-3721-4cd1-8e3c-95363b178ad2)
+
+- Winning a hand
+![Winning](https://github.com/kr222/sei-projects/assets/59068114/55d71688-7b9a-44a5-a12a-664ac2477089)
+
+- Losing a hand
+![Losing](https://github.com/kr222/sei-projects/assets/59068114/4a9d074b-630f-4aa3-b27e-45433e6c9b06)
+
+- Bank balance falling below minimum
+![Bank below minimum balance](https://github.com/kr222/sei-projects/assets/59068114/0265f926-8536-445b-bbdf-c626a2188814)
+
 ## Technologies Used
+
 
 - HTML
 - CSS
