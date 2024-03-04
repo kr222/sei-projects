@@ -1,4 +1,5 @@
 # Javascript Blackjack
+Try your luck in this free blackjack game where you can responsibly gamble without losing all your hard-earned cash! Feel the rain on your skin with the infinite cash top-up to finally beat the house
 
 ## Screenshots
 - Starting the game
@@ -54,3 +55,16 @@
 - Table themes (different colours for the felt table surface, buttons, and fonts)
 - Use .svg files instead of .png files for cards to reduce filesize
 - Poker game based on the same deck foundation
+
+## References
+- Youtube tutorials
+https://www.youtube.com/watch?v=bMYCWccL-3U&pp=ygUUamF2YXNjcmlwdCBibGFja2phY2s%3D
+https://www.youtube.com/watch?v=NxRwIZWjLtE&pp=ygUUamF2YXNjcmlwdCBibGFja2phY2s%3D
+
+- Mozilla Documentation
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt
+https://developer.mozilla.org/en-US/docs/Web/API/Element/classList
+
+- Information about Blackjack rules
+https://en.wikipedia.org/wiki/Blackjack
