@@ -1,7 +1,7 @@
 # Javascript Blackjack
 
 ## Screenshots
-
+![Game Start](https://github.com/kr222/sei-projects/assets/59068114/e7c10538-ea9c-459a-872d-6ab95204eb3e)
 ## Technologies Used
 
 - HTML
