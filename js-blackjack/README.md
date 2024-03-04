@@ -10,7 +10,7 @@
 
 ## Getting Started
 
-[Start Game)](https://kr222.github.io/sei-projects/js-blackjack)
+[Start Game](https://kr222.github.io/sei-projects/js-blackjack)
 
 - The main goal of Blackjack is to get a better hand of cards than the dealer, without exceeding a hand value of 21
   -The player can either hit (draw a card from the deck), or stay (use your current hand's cards against the dealer's)
