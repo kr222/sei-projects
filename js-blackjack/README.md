@@ -58,13 +58,13 @@ Try your luck in this free blackjack game where you can responsibly gamble witho
 
 ## References
 - Youtube tutorials
-https://www.youtube.com/watch?v=bMYCWccL-3U&pp=ygUUamF2YXNjcmlwdCBibGFja2phY2s%3D
-https://www.youtube.com/watch?v=NxRwIZWjLtE&pp=ygUUamF2YXNjcmlwdCBibGFja2phY2s%3D
+1. https://www.youtube.com/watch?v=bMYCWccL-3U&pp=ygUUamF2YXNjcmlwdCBibGFja2phY2s%3D
+2. https://www.youtube.com/watch?v=NxRwIZWjLtE&pp=ygUUamF2YXNjcmlwdCBibGFja2phY2s%3D
 
 - Mozilla Documentation
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt
-https://developer.mozilla.org/en-US/docs/Web/API/Element/classList
+1. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+2. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt
+3. https://developer.mozilla.org/en-US/docs/Web/API/Element/classList
 
 - Information about Blackjack rules
-https://en.wikipedia.org/wiki/Blackjack
+1. https://en.wikipedia.org/wiki/Blackjack
