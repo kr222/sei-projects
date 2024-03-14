@@ -23,7 +23,12 @@ body {
 
 th,
 td {
-  border: 2px solid black;
+  border: black;
+  border-style: solid;
+  border-width: 1px 7px 5px 1px;
+  border-radius: 6%;
+  margin: 10px;
+  padding: 5px;
 }
 
 h2 {
