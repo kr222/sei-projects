@@ -1,12 +1,6 @@
 import React from "react";
-import { useState, useRef } from "react";
 
 const TDEEInput = (props) => {
-  const newCalories = useRef();
-  const newProtein = useRef();
-  const newFats = useRef();
-  const newCarbs = useRef();
-
   const updateMacros = async () => {
     try {
       const res = await fetch(
@@ -66,7 +60,6 @@ const TDEEInput = (props) => {
   return (
     <div>
       <label className="col-sm-10">{props.macro}</label>
-      {/* add defaultValue= as an item fetched from airtable */}
 
       <input
         className="col-sm-5"
@@ -84,7 +77,6 @@ const TDEEInput = (props) => {
           props.handleCarbsChange
         }
       ></input>
-      {/* <label>{props.unit}</label> */}
       <button onClick={updateMacros}>{props.unit}</button>
     </div>
   );

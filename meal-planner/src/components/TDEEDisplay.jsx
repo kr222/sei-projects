@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import TDEEInput from "./TDEEInput";
-import { useState, useRef } from "react";
 
 const TDEEDisplay = () => {
   const [macros, setMacros] = useState([]);
@@ -106,7 +105,6 @@ const TDEEDisplay = () => {
           carbsState={carbsState}
         />
         <br></br>
-
         <div></div>
       </div>
     </>
