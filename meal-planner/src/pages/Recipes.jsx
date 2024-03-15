@@ -1,9 +1,11 @@
 import React from "react";
 import NavBar from "../components/NavBar";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Recipes = () => {
   const [recipes, setRecipes] = useState("");
+  const [meal, setMeal] = useState([]);
+
   const getRecipes = async () => {
     try {
       const res = await fetch(
@@ -21,7 +23,6 @@ const Recipes = () => {
         const data = await res.json();
         setRecipes(data.records);
         console.log(`Recipes fetched successfully`);
-        console.log(recipes[0]);
       }
     } catch (error) {
       if (error.name !== "AbortError") {
@@ -29,27 +30,82 @@ const Recipes = () => {
       }
     }
   };
+
+  const getMacros = async () => {
+    try {
+      const res = await fetch(
+        "https://api.api-ninjas.com/v1/nutrition?query=" + "50g chicken",
+        {
+          method: "GET",
+          headers: {
+            "X-Api-Key": "jzDvM+Jee+QCOf8FQ1GVgQ==CaAwGRMGezUShxNa",
+          },
+        }
+      );
+
+      if (res.ok) {
+        const data = await res.json();
+        // setRecipes(data.records);
+        console.log(data);
+      }
+    } catch (error) {
+      if (error.name !== "AbortError") {
+        console.log(error.message);
+      }
+    }
+  };
+
+  const handleRecipes = () => {
+    setMeal(recipes[0].fields.meal);
+  };
+
   return (
     <div>
       <>
-        <div className="col-sm-12">
-          <button onClick={getRecipes}>asd</button>
+        <div>
+          <h2>
+            <NavBar></NavBar>
+          </h2>
+          <div className="row">
+            <div className="col-sm-1 spacer"></div>
+            <div className="col-sm-2 component">
+              <button onClick={getRecipes}>Get recipes</button>
+            </div>
+            <div className="col-sm-8 component">
+              <label className="col-sm-2">weight:</label>
+              <input className="col-sm-1"></input>
+              <label className="col-sm-1">g </label>
+              <div className="col-sm-1"></div>
+              <label className="col-sm-2"> ingredient: </label>
+              <input className="col-sm-2"></input>
+              <button className="col-sm-2" onClick={getMacros}>
+                DANGER: limited api calls. use sparingly<br></br> get macros
+              </button>
+            </div>
+
+            <div className="col-sm-1 spacer"></div>
+          </div>
+
+          <div className="row">
+            <br />
+            <div className="col-sm-1 spacer"></div>
+            <div className="col-sm-2 component">
+              <button onClick={handleRecipes}>Print Recipes</button>
+            </div>
+            <div className="col-sm-8 component">
+              <div className="row">
+                <div className="col-sm-3">Meal</div>
+                <div className="col-sm-2">Calories</div>
+                <div className="col-sm-2">Protein</div>
+                <div className="col-sm-2">Fats</div>
+                <div className="col-sm-2">Carbs</div>
+                <hr></hr>
+              </div>
+              <div className="col-sm-3">{meal}</div>
+            </div>
+            <div className="col-sm-1 spacer"></div>
+          </div>
         </div>
-        <h1>{JSON.stringify(recipes[0].fields)}</h1>
-        <h1>
-          {JSON.parse(
-            JSON.stringify(recipes[0].fields.macros)
-              .replace(/\\/g, " ")
-              .replace("n", "")
-              .replace("n}", "}")
-              .replace("ncal", "cal")
-              .replace("npro", "pro")
-              .replace("nfats", "fats")
-              .replace("ncarbs", "carbs")
-          )}
-        </h1>
-        <div></div>
-        <NavBar></NavBar>
       </>
     </div>
   );

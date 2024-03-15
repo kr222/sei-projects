@@ -8,13 +8,16 @@ const Planner = () => {
   return (
     <>
       <div>
-        <h2>hello world</h2>
+        <h2>
+          <NavBar></NavBar>
+        </h2>
         <div className="row">
           <div className="col-sm-1 spacer"></div>
           <div className="col-sm-2 component">
             <TDEEDisplay></TDEEDisplay>
           </div>
           <div className="col-sm-8 component">
+            <div className="col-sm-1 spacer"></div>
             <WeekPlan></WeekPlan>
           </div>
           {/* <div className="col-sm-1 spacer"></div> */}
@@ -23,9 +26,7 @@ const Planner = () => {
         <div className="row">
           <br />
           <div className="col-sm-1 spacer"></div>
-          <div className="col-sm-2 component">
-            <NavBar></NavBar>
-          </div>
+          <div className="col-sm-2 component"></div>
           <div className="col-sm-8 component">
             <MacroTally></MacroTally>
           </div>
