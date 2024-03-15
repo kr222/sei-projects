@@ -30,7 +30,7 @@ const WeekPlan = () => {
     setTueDin(meals[2].fields.tue);
     setWedDin(meals[2].fields.wed);
 
-    console.log(`Meals fetched and set to days`);
+    console.log(`Meals assigned to days successfully`);
   };
 
   const getMeals = async () => {
@@ -76,35 +76,35 @@ const WeekPlan = () => {
           </tr>
           <tr className="row" id="breakfast-row">
             <td className="col-sm-2" id="mondayB">
-              <MealItem monBrek={monBrek} />
+              <MealItem monBrek={monBrek} getMeals={getMeals} />
             </td>
             <td className="col-sm-2" id="tuesdayB">
-              <MealItem tueBrek={tueBrek} />
+              <MealItem tueBrek={tueBrek} getMeals={getMeals} />
             </td>
             <td className="col-sm-2" id="wednesdayB">
-              <MealItem wedBrek={wedBrek} />
+              <MealItem wedBrek={wedBrek} getMeals={getMeals} />
             </td>
           </tr>
           <tr className="row" id="lunch-row">
             <td className="col-sm-2" id="mondayL">
-              <MealItem monLun={monLun} />
+              <MealItem monLun={monLun} getMeals={getMeals} />
             </td>
             <td className="col-sm-2" id="tuesdayL">
-              <MealItem tueLun={tueLun} />
+              <MealItem tueLun={tueLun} getMeals={getMeals} />
             </td>
             <td className="col-sm-2" id="wednesdayL">
-              <MealItem wedLun={wedLun} />
+              <MealItem wedLun={wedLun} getMeals={getMeals} />
             </td>
           </tr>
           <tr className="row" id="dinner-row">
             <td className="col-sm-2" id="mondayD">
-              <MealItem monDin={monDin} />
+              <MealItem monDin={monDin} getMeals={getMeals} />
             </td>
             <td className="col-sm-2" id="tuesdayD">
-              <MealItem tueDin={tueDin} />
+              <MealItem tueDin={tueDin} getMeals={getMeals} />
             </td>
             <td className="col-sm-2" id="wednesdayD">
-              <MealItem wedDin={wedDin} />
+              <MealItem wedDin={wedDin} getMeals={getMeals} />
             </td>
           </tr>
         </tbody>

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Edit from "./Edit";
+import EditMeal from "./EditMeal";
 
 import { useState } from "react";
 
@@ -45,7 +45,9 @@ const MealItem = (props) => {
       </button>
 
       <button>hello world</button>
-      {showEdit && <Edit edit={setShowEdit}></Edit>}
+      {showEdit && (
+        <EditMeal edit={setShowEdit} getMeals={props.getMeals}></EditMeal>
+      )}
     </>
   );
 };
