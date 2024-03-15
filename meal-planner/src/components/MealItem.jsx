@@ -7,6 +7,20 @@ const MealItem = (props) => {
   const [itemDisplay, setItemDisplay] = useState("meal");
   const [showEdit, setShowEdit] = useState();
 
+  const [monBrekInput, setMonBrekInput] = useState();
+  const [tueBrekInput, setTueBrekInput] = useState();
+  const [wedBrekInput, setWedBrekInput] = useState();
+
+  const handleMonBrekInput = (e) => {
+    setMonBrekInput(e.target.value);
+  };
+  const handleTueBrekInput = (e) => {
+    setTueBrekInput(e.target.value);
+  };
+  const handleWedBrekInput = (e) => {
+    setWedBrekInput(e.target.value);
+  };
+
   const dayMeals =
     props.monBrek ||
     props.tueBrek ||
@@ -43,11 +57,20 @@ const MealItem = (props) => {
       >
         {itemDisplay}
       </button>
-
-      <button>hello world</button>
+      <button>button that does nothing</button>
       {showEdit && (
-        <EditMeal edit={setShowEdit} getMeals={props.getMeals}></EditMeal>
+        <EditMeal
+          edit={setShowEdit}
+          getMeals={props.getMeals}
+          handleMonBrekInput={handleMonBrekInput}
+          handleTueBrekInput={handleTueBrekInput}
+          handleWedBrekInput={handleWedBrekInput}
+          monBrekInput={monBrekInput}
+          tueBrekInput={tueBrekInput}
+          wedBrekInput={wedBrekInput}
+        ></EditMeal>
       )}
+      {monBrekInput} {tueBrekInput}
     </>
   );
 };

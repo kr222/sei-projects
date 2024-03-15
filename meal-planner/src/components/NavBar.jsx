@@ -17,7 +17,7 @@ const NavBar = () => {
         <li>
           <NavLink
             // className={(navData) => (navData.isActive ? styles.active : "")}
-            to="/planner"
+            to="/recipes"
           >
             Recipes
           </NavLink>

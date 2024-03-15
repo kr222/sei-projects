@@ -104,7 +104,7 @@ const WeekPlan = () => {
               <MealItem tueDin={tueDin} getMeals={getMeals} />
             </td>
             <td className="col-sm-2" id="wednesdayD">
-              <MealItem wedDin={wedDin} getMeals={getMeals} />
+              <MealItem wedDin={wedDin} />
             </td>
           </tr>
         </tbody>

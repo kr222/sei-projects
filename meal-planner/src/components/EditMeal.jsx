@@ -17,9 +17,9 @@ const EditMeals = (props) => {
               {
                 id: "recWxtoxI1odXsLfM",
                 fields: {
-                  mon: "B mon",
-                  tue: "B tue",
-                  wed: "B wed",
+                  mon: props.monBrekInput,
+                  tue: props.tueBrekInput,
+                  wed: props.wedBrekInput,
                 },
               },
               {
@@ -59,7 +59,11 @@ const EditMeals = (props) => {
   return (
     <>
       <hr></hr>
-      <input className="col-sm-10" placeholder="add meal"></input>
+      <input
+        className="col-sm-10"
+        placeholder="add meal"
+        onChange={props.handleMonBrekInput || props.handleTueBrekInput}
+      ></input>
       <button onClick={updateMeals}>save</button>
     </>
   );
