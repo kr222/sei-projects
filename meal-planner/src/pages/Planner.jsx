@@ -1,7 +1,7 @@
 import React from "react";
 
 const Planner = () => {
-  return <div>planner</div>;
+  return <h1>planner</h1>;
 };
 
 export default Planner;

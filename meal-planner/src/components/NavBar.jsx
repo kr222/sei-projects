@@ -5,8 +5,23 @@ const NavBar = () => {
   return (
     <nav>
       <ul>
-        <li>nav 1</li>
-        <li>nav 2</li>
+        <li>
+          {/* don't use anchor tags in react, use Link, import {Link}, and use to="" */}
+          <NavLink
+            // className={(navData) => (navData.isActive ? styles.active : "")}
+            to="/planner"
+          >
+            Planner
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            // className={(navData) => (navData.isActive ? styles.active : "")}
+            to="/planner"
+          >
+            Recipes
+          </NavLink>
+        </li>
       </ul>
     </nav>
   );
