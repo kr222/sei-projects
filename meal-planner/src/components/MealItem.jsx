@@ -5,21 +5,20 @@ import { useState } from "react";
 
 const MealItem = (props) => {
   const [itemDisplay, setItemDisplay] = useState("meal");
-  const [showEdit, setShowEdit] = useState();
 
-  const [monBrekInput, setMonBrekInput] = useState();
-  const [tueBrekInput, setTueBrekInput] = useState();
-  const [wedBrekInput, setWedBrekInput] = useState();
+  // const [monBrekInput, setMonBrekInput] = useState();
+  // const [tueBrekInput, setTueBrekInput] = useState();
+  // const [wedBrekInput, setWedBrekInput] = useState();
 
-  const handleMonBrekInput = (e) => {
-    setMonBrekInput(e.target.value);
-  };
-  const handleTueBrekInput = (e) => {
-    setTueBrekInput(e.target.value);
-  };
-  const handleWedBrekInput = (e) => {
-    setWedBrekInput(e.target.value);
-  };
+  // const handleMonBrekInput = (e) => {
+  //   setMonBrekInput(e.target.value);
+  // };
+  // const handleTueBrekInput = (e) => {
+  //   setTueBrekInput(e.target.value);
+  // };
+  // const handleWedBrekInput = (e) => {
+  //   setWedBrekInput(e.target.value);
+  // };
 
   const dayMeals =
     props.monBrek ||
@@ -44,7 +43,7 @@ const MealItem = (props) => {
 
   const handleClick = () => {
     console.log(`hi ${dayMeals}`);
-    setShowEdit(true);
+    props.setShowEdit(true);
   };
 
   return (
@@ -58,19 +57,24 @@ const MealItem = (props) => {
         {itemDisplay}
       </button>
       <button>button that does nothing</button>
-      {showEdit && (
+      {props.showEdit && (
         <EditMeal
-          edit={setShowEdit}
           getMeals={props.getMeals}
-          handleMonBrekInput={handleMonBrekInput}
-          handleTueBrekInput={handleTueBrekInput}
-          handleWedBrekInput={handleWedBrekInput}
-          monBrekInput={monBrekInput}
-          tueBrekInput={tueBrekInput}
-          wedBrekInput={wedBrekInput}
+          handleMonBrekInput={props.handleMonBrekInput}
+          handleTueBrekInput={props.handleTueBrekInput}
+          handleWedBrekInput={props.handleWedBrekInput}
+          handleMonLunInput={props.handleMonLunInput}
+          handleTueLunInput={props.handleTueLunInput}
+          handleWedLunInput={props.handleWedLunInput}
+          handleMonDinInput={props.handleMonDinInput}
+          handleTueDinInput={props.handleTueDinInput}
+          handleWedDinInput={props.handleWedDinInput}
+          updateMeals={props.updateMeals}
         ></EditMeal>
       )}
-      {monBrekInput} {tueBrekInput}
+      {props.monBrekInput} {props.tueBrekInput} {props.wedBrekInput}{" "}
+      {props.monLunInput} {props.tueLunInput} {props.wedLunInput}
+      {props.monDinInput} {props.tueDinInput} {props.wedDinInput}
     </>
   );
 };
