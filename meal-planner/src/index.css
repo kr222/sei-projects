@@ -34,3 +34,8 @@ td {
 h2 {
   color: red;
 }
+
+.spacer,
+.component {
+  border: 2px solid skyblue;
+}
