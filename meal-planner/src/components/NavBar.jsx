@@ -6,7 +6,6 @@ const NavBar = () => {
     <nav>
       <ul>
         <li>
-          {/* don't use anchor tags in react, use Link, import {Link}, and use to="" */}
           <NavLink
             // className={(navData) => (navData.isActive ? styles.active : "")}
             to="/planner"
