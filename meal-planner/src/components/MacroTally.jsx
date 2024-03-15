@@ -10,10 +10,6 @@ const MacroTally = () => {
             <td>asdfasdfasdfas</td>
             <td>asdfasdfasdfas</td>
             <td>asdfasdfasdfas</td>
-            <td>asdfasdfasdfas</td>
-            <td>asdfasdfasdfas</td>
-            <td>asdfasdfasdfas</td>
-            <td>asdfasdfasdfas</td>
           </tr>
         </tbody>
       </table>
