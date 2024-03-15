@@ -96,15 +96,6 @@ const MealItem = (props) => {
           updateMeals={props.updateMeals}
         ></EditMeal>
       )}
-      {props.monBrekInput} {props.tueBrekInput} {props.wedBrekInput}{" "}
-      {props.thuBrekInput} {props.friBrekInput} {props.satBrekInput}{" "}
-      {props.sunBrekInput}
-      {props.monLunInput} {props.tueLunInput} {props.wedLunInput}{" "}
-      {props.thuLunInput} {props.friLunInput} {props.satLunInput}{" "}
-      {props.sunLunInput}
-      {props.monDinInput} {props.tueDinInput} {props.wedDinInput}{" "}
-      {props.thuDinInput} {props.friDinInput} {props.satDinInput}{" "}
-      {props.sunDinInput}
     </>
   );
 };
