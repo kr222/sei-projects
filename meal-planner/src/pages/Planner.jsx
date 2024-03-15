@@ -17,7 +17,7 @@ const Planner = () => {
           <div className="col-sm-8 component">
             <WeekPlan></WeekPlan>
           </div>
-          <div className="col-sm-1 spacer"></div>
+          {/* <div className="col-sm-1 spacer"></div> */}
         </div>
 
         <div className="row">
