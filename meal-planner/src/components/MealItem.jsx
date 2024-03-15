@@ -24,12 +24,24 @@ const MealItem = (props) => {
     props.monBrek ||
     props.tueBrek ||
     props.wedBrek ||
+    props.thuBrek ||
+    props.friBrek ||
+    props.satBrek ||
+    props.sunBrek ||
     props.monLun ||
     props.tueLun ||
     props.wedLun ||
+    props.thuLun ||
+    props.friLun ||
+    props.satLun ||
+    props.sunLun ||
     props.monDin ||
     props.tueDin ||
-    props.wedDin;
+    props.wedDin ||
+    props.thuDin ||
+    props.friDin ||
+    props.satDin ||
+    props.sunDin;
 
   const allocateMeals = () => {
     setItemDisplay(dayMeals);
@@ -63,18 +75,36 @@ const MealItem = (props) => {
           handleMonBrekInput={props.handleMonBrekInput}
           handleTueBrekInput={props.handleTueBrekInput}
           handleWedBrekInput={props.handleWedBrekInput}
+          handleThuBrekInput={props.handleThuBrekInput}
+          handleFriBrekInput={props.handleFriBrekInput}
+          handleSatBrekInput={props.handleSatBrekInput}
+          handleSunBrekInput={props.handleSunBrekInput}
           handleMonLunInput={props.handleMonLunInput}
           handleTueLunInput={props.handleTueLunInput}
           handleWedLunInput={props.handleWedLunInput}
+          handleThuLunInput={props.handleThuLunInput}
+          handleFriLunInput={props.handleFriLunInput}
+          handleSatLunInput={props.handleSatLunInput}
+          handleSunLunInput={props.handleSunLunInput}
           handleMonDinInput={props.handleMonDinInput}
           handleTueDinInput={props.handleTueDinInput}
           handleWedDinInput={props.handleWedDinInput}
+          handleThuDinInput={props.handleThuDinInput}
+          handleFriDinInput={props.handleFriDinInput}
+          handleSatDinInput={props.handleSatDinInput}
+          handleSunDinInput={props.handleSunDinInput}
           updateMeals={props.updateMeals}
         ></EditMeal>
       )}
       {props.monBrekInput} {props.tueBrekInput} {props.wedBrekInput}{" "}
-      {props.monLunInput} {props.tueLunInput} {props.wedLunInput}
-      {props.monDinInput} {props.tueDinInput} {props.wedDinInput}
+      {props.thuBrekInput} {props.friBrekInput} {props.satBrekInput}{" "}
+      {props.sunBrekInput}
+      {props.monLunInput} {props.tueLunInput} {props.wedLunInput}{" "}
+      {props.thuLunInput} {props.friLunInput} {props.satLunInput}{" "}
+      {props.sunLunInput}
+      {props.monDinInput} {props.tueDinInput} {props.wedDinInput}{" "}
+      {props.thuDinInput} {props.friDinInput} {props.satDinInput}{" "}
+      {props.sunDinInput}
     </>
   );
 };
