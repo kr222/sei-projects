@@ -1,10 +1,10 @@
 # Meal Planner with Macros
 
-The quick brown fox jumped over the lazy dog
+> One-liner goes here
 
 ## Screenshots
 
-The quick brown fox jumped over the lazy dog
+> Screenshots with descriptions go here
 
 ## Technologies Used
 
@@ -16,7 +16,7 @@ The quick brown fox jumped over the lazy dog
 
 ## Getting Started
 
-> Link goes here
+> Link to launch app goes here
 
 > Instructions go here
 
