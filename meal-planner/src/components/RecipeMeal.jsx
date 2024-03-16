@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 
 const RecipeMeal = (props) => {
-  const [ingredients, setIngredients] = useState([]);
-  useEffect(() => setIngredients(props.recipeIngredients), []);
+  //   const [ingredients, setIngredients] = useState([]);
+  //   useEffect(() => setIngredients(props.recipeIngredients), []);
 
   // function to delete individual recipe
   const deleteRecipe = async () => {

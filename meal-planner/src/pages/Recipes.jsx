@@ -87,14 +87,13 @@ const Recipes = () => {
 
         if (res.ok) {
           const data = await res.json();
-          // setRecipes(data.records);
           console.log(data[0]);
-          console.log(`serving size: ${data[0].serving_size_g}`);
-          console.log(`name: ${data[0].name}`);
-          console.log(`cal: ${data[0].calories}`);
-          console.log(`pro: ${data[0].protein_g}`);
-          console.log(`fat: ${data[0].fat_total_g}`);
-          console.log(`carb: ${data[0].carbohydrates_total_g}`);
+          setServingSize(data[0].serving_size_g);
+          setIngredientName(data[0].name);
+          setCalState(data[0].calories);
+          setProState(data[0].protein_g);
+          setFatState(data[0].fat_total_g);
+          setCarbState(data[0].carbohydrates_total_g);
           setShowMacros(true);
         }
       } catch (error) {
@@ -180,6 +179,7 @@ const Recipes = () => {
               <button className="col-sm-2" onClick={getMacros}>
                 get macros
               </button>
+              <button onClick={() => setShowMacros(true)}>open sesame</button>
               {showMacros && (
                 <Macros
                   recipes={recipes}
