@@ -107,6 +107,7 @@ const Recipes = () => {
       );
     }
   };
+
   // function to create a recipe and store in airtable
   const createRecipe = async () => {
     try {
@@ -225,12 +226,14 @@ const Recipes = () => {
             </div>
             <div className="col-sm-8 component">
               <div className="row">
-                <h4 className="col-sm-4">Meal</h4>
-                <h4 className="col-sm-2">Calories (cal)</h4>
-                <h4 className="col-sm-2">Protein (g)</h4>
-                <h3 className="col-sm-2">Fats (g)</h3>
-                <h3 className="col-sm-2">Carbs (g)</h3>
-                <hr></hr>
+                <div className="row">
+                  <h4 className="col-sm-4">Meal</h4>
+                  <h4 className="col-sm-2">Calories (cal)</h4>
+                  <h4 className="col-sm-2">Protein (g)</h4>
+                  <h3 className="col-sm-2">Fats (g)</h3>
+                  <h3 className="col-sm-2">Carbs (g)</h3>
+                  <hr></hr>
+                </div>
 
                 {recipeStatus &&
                   recipes.map((item) => {
