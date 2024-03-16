@@ -94,11 +94,11 @@ const Recipes = () => {
               {
                 fields: {
                   meal: "hello",
-                  ingredients: "oats, milk, honey",
-                  cal: "300",
-                  pro: "34",
-                  fat: "12",
-                  carb: "20",
+                  ingredients: "food, meat, veg",
+                  cal: "111",
+                  pro: "222",
+                  fat: "333",
+                  carb: "444",
                 },
               },
             ],
@@ -141,7 +141,12 @@ const Recipes = () => {
               <button className="col-sm-2" onClick={() => setShowMacros(true)}>
                 get macros
               </button>
-              {showMacros && <Macros setShowMacros={setShowMacros}></Macros>}
+              {showMacros && (
+                <Macros
+                  recipes={recipes}
+                  setShowMacros={setShowMacros}
+                ></Macros>
+              )}
             </div>
 
             <div className="col-sm-1 spacer"></div>
@@ -160,7 +165,7 @@ const Recipes = () => {
                 {recipeStatus && recipes[0].fields.ingredients.split(",")}
               </p>
 
-              <button onClick={createRecipe}>test button</button>
+              <button onClick={createRecipe}>create test recipe</button>
             </div>
             <div className="col-sm-8 component">
               <div className="row">
