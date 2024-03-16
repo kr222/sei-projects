@@ -1,9 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useState } from "react";
+import EditMacros from "./EditMacros";
 
 const RecipeMeal = (props) => {
-  //   const [ingredients, setIngredients] = useState([]);
-  //   useEffect(() => setIngredients(props.recipeIngredients), []);
+  const [showEdit, setShowEdit] = useState("");
+  const [showButton, setShowButton] = useState("");
 
   // function to delete individual recipe
   const deleteRecipe = async () => {
@@ -30,7 +31,7 @@ const RecipeMeal = (props) => {
     }
   };
 
-  // function to update individual recipe
+  // function to update individual recipe (attach it back to onclick for edit)
   const updateMeal = async () => {
     try {
       const res = await fetch(
@@ -68,26 +69,40 @@ const RecipeMeal = (props) => {
     }
   };
 
-  // function to split ingredients and return an array to map into a list
-  const listIngredients = () => {};
+  // declaring a propped string of ingredients as a const to split it into an array for mapping
+  const dog = props.recipeIngredients.split(",");
+
+  //function for hiding/showing edit fields
+  const aaa = () => {
+    if (!showEdit) {
+      setShowEdit(true);
+    } else {
+      setShowEdit(false);
+    }
+  };
 
   return (
     <>
       <div className="row">
         <div className="col-sm-4">
-          <h2>{props.meal}</h2>
-          <p className="col" style={{ marginLeft: "40px" }}>
-            {props.recipeIngredients}
-            <br />
-            <br />
-          </p>
+          <h3>
+            <button onClick={aaa}>{props.meal}</button>
+          </h3>
+          <ul style={{ marginLeft: "20px" }}>
+            {dog.map((item) => {
+              return <li key={item}>{item}</li>;
+            })}
+          </ul>
         </div>
-        <h1 className="col-sm-2">{props.recipeCal}</h1>
+        <h1 className="col-sm-2">{props.recipeCal} </h1>
         <h1 className="col-sm-2">{props.recipePro}</h1>
         <h1 className="col-sm-2">{props.recipeFat}</h1>
         <h1 className="col-sm-2">{props.recipeCarb}</h1>
-        <button onClick={updateMeal}>edit</button>
-        <button onClick={deleteRecipe}>delete</button>
+        {showEdit && (
+          <EditMacros setShowEdit={setShowEdit} deleteRecipe={deleteRecipe} />
+        )}
+
+        <div className="col-sm-6"></div>
       </div>
     </>
   );
