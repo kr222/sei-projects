@@ -1,15 +1,37 @@
 import React from "react";
 import NavBar from "../components/NavBar";
+import Macros from "../components/Macros";
+import RecipeMeal from "../components/RecipeMeal";
 import { useState, useEffect } from "react";
 
 const Recipes = () => {
   const [recipes, setRecipes] = useState("");
-  const [meal, setMeal] = useState([]);
+
+  // state to show recipes only when they are successfully fetched
+  const [recipeStatus, setRecipeStatus] = useState(false);
+
+  // // states for recipe list
+  // const [meal, setMeal] = useState([]);
+  // const [recipeIngredients, setRecipeIngredients] = useState("");
+  // const [recipeCal, setRecipeCal] = useState("");
+  // const [recipePro, setRecipePro] = useState("");
+  // const [recipeFat, setRecipeFat] = useState("");
+  // const [recipeCarb, setRecipeCarb] = useState("");
+
+  // states for data fetched from nutrition api
+  const [servingSize, setServingSize] = useState("");
+  const [name, setName] = useState("");
+  const [calories, setCalories] = useState("");
+  const [protein, setProtein] = useState("");
+  const [fat, setFat] = useState("");
+  const [carbs, setCarbs] = useState("");
+
+  const [showMacros, setShowMacros] = useState("");
 
   const getRecipes = async () => {
     try {
       const res = await fetch(
-        "https://api.airtable.com/v0/appeKmMdDs8azWyPx/recipes?maxRecords=3&view=Grid%20view",
+        "https://api.airtable.com/v0/appeKmMdDs8azWyPx/recipes?maxRecords=10&view=Grid%20view",
         {
           method: "GET",
           headers: {
@@ -23,6 +45,8 @@ const Recipes = () => {
         const data = await res.json();
         setRecipes(data.records);
         console.log(`Recipes fetched successfully`);
+        console.log(data.records);
+        setRecipeStatus(true);
       }
     } catch (error) {
       if (error.name !== "AbortError") {
@@ -34,7 +58,7 @@ const Recipes = () => {
   const getMacros = async () => {
     try {
       const res = await fetch(
-        "https://api.api-ninjas.com/v1/nutrition?query=" + "50g chicken",
+        "https://api.api-ninjas.com/v1/nutrition?query=20g bread",
         {
           method: "GET",
           headers: {
@@ -46,7 +70,13 @@ const Recipes = () => {
       if (res.ok) {
         const data = await res.json();
         // setRecipes(data.records);
-        console.log(data);
+        console.log(data[0]);
+        console.log(`serving size: ${data[0].serving_size_g}`);
+        console.log(`name: ${data[0].name}`);
+        console.log(`cal: ${data[0].calories}`);
+        console.log(`pro: ${data[0].protein_g}`);
+        console.log(`fat: ${data[0].fat_total_g}`);
+        console.log(`carb: ${data[0].carbohydrates_total_g}`);
       }
     } catch (error) {
       if (error.name !== "AbortError") {
@@ -55,10 +85,9 @@ const Recipes = () => {
     }
   };
 
-  const handleRecipes = () => {
-    setMeal(recipes[0].fields.meal);
-  };
+  const handleRecipes = () => {};
 
+  useEffect(() => getRecipes, []);
   return (
     <div>
       <>
@@ -78,9 +107,10 @@ const Recipes = () => {
               <div className="col-sm-1"></div>
               <label className="col-sm-2"> ingredient: </label>
               <input className="col-sm-2"></input>
-              <button className="col-sm-2" onClick={getMacros}>
-                DANGER: limited api calls. use sparingly<br></br> get macros
+              <button className="col-sm-2" onClick={() => setShowMacros(true)}>
+                get macros
               </button>
+              {showMacros && <Macros setShowMacros={setShowMacros}></Macros>}
             </div>
 
             <div className="col-sm-1 spacer"></div>
@@ -94,15 +124,30 @@ const Recipes = () => {
             </div>
             <div className="col-sm-8 component">
               <div className="row">
-                <div className="col-sm-3">Meal</div>
+                <div className="col-sm-4">Meal</div>
                 <div className="col-sm-2">Calories</div>
                 <div className="col-sm-2">Protein</div>
                 <div className="col-sm-2">Fats</div>
                 <div className="col-sm-2">Carbs</div>
                 <hr></hr>
+
+                {recipeStatus &&
+                  recipes.map((item) => {
+                    return (
+                      <RecipeMeal
+                        key={item.id}
+                        meal={item.fields.meal}
+                        recipeIngredients={item.fields.ingredients}
+                        recipeCal={item.fields.cal}
+                        recipePro={item.fields.pro}
+                        recipeFat={item.fields.fat}
+                        recipeCarb={item.fields.carb}
+                      ></RecipeMeal>
+                    );
+                  })}
               </div>
-              <div className="col-sm-3">{meal}</div>
             </div>
+
             <div className="col-sm-1 spacer"></div>
           </div>
         </div>
