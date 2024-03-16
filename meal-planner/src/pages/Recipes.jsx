@@ -10,14 +10,6 @@ const Recipes = () => {
   // state to show recipes only when they are successfully fetched
   const [recipeStatus, setRecipeStatus] = useState(false);
 
-  // // states for recipe list
-  // const [meal, setMeal] = useState([]);
-  // const [recipeIngredients, setRecipeIngredients] = useState("");
-  // const [recipeCal, setRecipeCal] = useState("");
-  // const [recipePro, setRecipePro] = useState("");
-  // const [recipeFat, setRecipeFat] = useState("");
-  // const [recipeCarb, setRecipeCarb] = useState("");
-
   // states for data fetched from nutrition api
   const [servingSize, setServingSize] = useState("");
   const [name, setName] = useState("");
@@ -28,10 +20,11 @@ const Recipes = () => {
 
   const [showMacros, setShowMacros] = useState("");
 
+  // function to get recipes from airtable
   const getRecipes = async () => {
     try {
       const res = await fetch(
-        "https://api.airtable.com/v0/appeKmMdDs8azWyPx/recipes?maxRecords=10&view=Grid%20view",
+        "https://api.airtable.com/v0/appeKmMdDs8azWyPx/recipes?maxRecords=20&view=Grid%20view",
         {
           method: "GET",
           headers: {
@@ -54,7 +47,7 @@ const Recipes = () => {
       }
     }
   };
-
+  // function to get macros of ingredients from nutrition api
   const getMacros = async () => {
     try {
       const res = await fetch(
@@ -84,8 +77,46 @@ const Recipes = () => {
       }
     }
   };
+  // function to create a recipe and store in airtable
+  const createRecipe = async () => {
+    try {
+      const res = await fetch(
+        "https://api.airtable.com/v0/appeKmMdDs8azWyPx/recipes",
+        {
+          method: "POST",
+          headers: {
+            Authorization:
+              "Bearer patnEBL5ICNyKDzQJ.7935cda5b01609b4bffa30b86e6d9e365a035dc1184d5fb2070c331817a54410",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            records: [
+              {
+                fields: {
+                  meal: "hello",
+                  ingredients: "oats, milk, honey",
+                  cal: "300",
+                  pro: "34",
+                  fat: "12",
+                  carb: "20",
+                },
+              },
+            ],
+          }),
+        }
+      );
 
-  const handleRecipes = () => {};
+      if (res.ok) {
+        const data = await res.json();
+        console.log(`Recipe created successfully`);
+        getRecipes();
+      }
+    } catch (error) {
+      if (error.name !== "AbortError") {
+        console.log(error.message);
+      }
+    }
+  };
 
   useEffect(() => getRecipes, []);
   return (
@@ -120,15 +151,24 @@ const Recipes = () => {
             <br />
             <div className="col-sm-1 spacer"></div>
             <div className="col-sm-2 component">
-              <button onClick={handleRecipes}>Print Recipes</button>
+              <button>Print Recipes</button>
+              <br></br>
+              <br></br>
+              <p>
+                test area:
+                <br />
+                {recipeStatus && recipes[0].fields.ingredients.split(",")}
+              </p>
+
+              <button onClick={createRecipe}>test button</button>
             </div>
             <div className="col-sm-8 component">
               <div className="row">
-                <div className="col-sm-4">Meal</div>
-                <div className="col-sm-2">Calories</div>
-                <div className="col-sm-2">Protein</div>
-                <div className="col-sm-2">Fats</div>
-                <div className="col-sm-2">Carbs</div>
+                <h4 className="col-sm-4">Meal</h4>
+                <h4 className="col-sm-2">Calories (cal)</h4>
+                <h4 className="col-sm-2">Protein (g)</h4>
+                <h3 className="col-sm-2">Fats (g)</h3>
+                <h3 className="col-sm-2">Carbs (g)</h3>
                 <hr></hr>
 
                 {recipeStatus &&
@@ -136,6 +176,8 @@ const Recipes = () => {
                     return (
                       <RecipeMeal
                         key={item.id}
+                        id={item.id}
+                        getRecipes={getRecipes}
                         meal={item.fields.meal}
                         recipeIngredients={item.fields.ingredients}
                         recipeCal={item.fields.cal}
