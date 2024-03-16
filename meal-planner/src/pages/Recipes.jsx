@@ -10,15 +10,29 @@ const Recipes = () => {
   // state to show recipes only when they are successfully fetched
   const [recipeStatus, setRecipeStatus] = useState(false);
 
-  // states for data fetched from nutrition api
-  const [servingSize, setServingSize] = useState("");
-  const [name, setName] = useState("");
-  const [calories, setCalories] = useState("");
-  const [protein, setProtein] = useState("");
-  const [fat, setFat] = useState("");
-  const [carbs, setCarbs] = useState("");
-
+  // state to show/hide macro editor
   const [showMacros, setShowMacros] = useState("");
+
+  // states for sending query to nutrition api
+  const [ingredientWeight, setIngredientWeight] = useState("");
+  const [ingredientThing, setIngredientThing] = useState("");
+
+  // states for data fetched from nutrition api, to prop macro valuesdown to macro display
+  const [servingSize, setServingSize] = useState("");
+  const [ingredientName, setIngredientName] = useState("Bread");
+  const [calState, setCalState] = useState(111);
+  const [proState, setProState] = useState(222);
+  //     ^ ha ha   ^ ha ha ha
+  const [fatState, setFatState] = useState(333);
+  const [carbState, setCarbState] = useState(444);
+
+  // event handlers for weight and ingredient inputs
+  const handleWeightChange = (e) => {
+    setIngredientWeight(e.target.value);
+  };
+  const handleIngredientChange = (e) => {
+    setIngredientThing(e.target.value);
+  };
 
   // function to get recipes from airtable
   const getRecipes = async () => {
@@ -49,32 +63,49 @@ const Recipes = () => {
   };
   // function to get macros of ingredients from nutrition api
   const getMacros = async () => {
-    try {
-      const res = await fetch(
-        "https://api.api-ninjas.com/v1/nutrition?query=20g bread",
-        {
-          method: "GET",
-          headers: {
-            "X-Api-Key": "jzDvM+Jee+QCOf8FQ1GVgQ==CaAwGRMGezUShxNa",
-          },
-        }
-      );
+    // constraints so the api doesn't get a bad request
+    if (
+      !isNaN(ingredientWeight) &&
+      ingredientWeight > 0 &&
+      ingredientWeight <= 2000 &&
+      ingredientThing.length > 0 &&
+      ingredientThing.length <= 50
+    ) {
+      try {
+        const res = await fetch(
+          "https://api.api-ninjas.com/v1/nutrition?query=" +
+            ingredientWeight +
+            "g " +
+            ingredientThing,
+          {
+            method: "GET",
+            headers: {
+              "X-Api-Key": "jzDvM+Jee+QCOf8FQ1GVgQ==CaAwGRMGezUShxNa",
+            },
+          }
+        );
 
-      if (res.ok) {
-        const data = await res.json();
-        // setRecipes(data.records);
-        console.log(data[0]);
-        console.log(`serving size: ${data[0].serving_size_g}`);
-        console.log(`name: ${data[0].name}`);
-        console.log(`cal: ${data[0].calories}`);
-        console.log(`pro: ${data[0].protein_g}`);
-        console.log(`fat: ${data[0].fat_total_g}`);
-        console.log(`carb: ${data[0].carbohydrates_total_g}`);
+        if (res.ok) {
+          const data = await res.json();
+          // setRecipes(data.records);
+          console.log(data[0]);
+          console.log(`serving size: ${data[0].serving_size_g}`);
+          console.log(`name: ${data[0].name}`);
+          console.log(`cal: ${data[0].calories}`);
+          console.log(`pro: ${data[0].protein_g}`);
+          console.log(`fat: ${data[0].fat_total_g}`);
+          console.log(`carb: ${data[0].carbohydrates_total_g}`);
+          setShowMacros(true);
+        }
+      } catch (error) {
+        if (error.name !== "AbortError") {
+          console.log(error.message);
+        }
       }
-    } catch (error) {
-      if (error.name !== "AbortError") {
-        console.log(error.message);
-      }
+    } else {
+      alert(
+        "PEBKAC: Please ensure the weight is a number in grams and/or the ingredient a real thing"
+      );
     }
   };
   // function to create a recipe and store in airtable
@@ -133,18 +164,35 @@ const Recipes = () => {
             </div>
             <div className="col-sm-8 component">
               <label className="col-sm-2">weight:</label>
-              <input className="col-sm-1"></input>
+              <input
+                className="col-sm-1"
+                id="ingredientWeight"
+                onChange={handleWeightChange}
+              ></input>
               <label className="col-sm-1">g </label>
               <div className="col-sm-1"></div>
               <label className="col-sm-2"> ingredient: </label>
-              <input className="col-sm-2"></input>
-              <button className="col-sm-2" onClick={() => setShowMacros(true)}>
+              <input
+                className="col-sm-2"
+                id="ingredientThing"
+                onChange={handleIngredientChange}
+              ></input>
+              <button className="col-sm-2" onClick={getMacros}>
                 get macros
               </button>
               {showMacros && (
                 <Macros
                   recipes={recipes}
                   setShowMacros={setShowMacros}
+                  setIngredientWeight={setIngredientWeight}
+                  setIngredientThing={setIngredientThing}
+                  servingSize={servingSize}
+                  ingredientName={ingredientName}
+                  calState={calState}
+                  proState={proState}
+                  fatState={fatState}
+                  carbState={carbState}
+                  getRecipes={getRecipes}
                 ></Macros>
               )}
             </div>
@@ -156,7 +204,15 @@ const Recipes = () => {
             <br />
             <div className="col-sm-1 spacer"></div>
             <div className="col-sm-2 component">
-              <button>Print Recipes</button>
+              <button
+                onClick={() =>
+                  alert(
+                    "PEBKAC: Make sure the weight is a number in grams and/or the ingredient a real thing"
+                  )
+                }
+              >
+                test input
+              </button>
               <br></br>
               <br></br>
               <p>
