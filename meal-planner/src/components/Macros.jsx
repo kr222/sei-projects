@@ -25,7 +25,7 @@ const Macros = (props) => {
     console.log(`ok2`);
   };
 
-  //states for sending new values to airtable after adding ingredient
+  //states and function for sending new values to airtable after adding ingredient
   const [sendCal, setSendCal] = useState("");
   const [sendPro, setSendPro] = useState("");
   const [sendFat, setSendFat] = useState("");
@@ -41,7 +41,7 @@ const Macros = (props) => {
     );
   };
 
-  //function to fetch currently selected recipe
+  //function to fetch currently selected recipe and store its values
   const fetchRecipe = async () => {
     try {
       const res = await fetch(
@@ -74,7 +74,7 @@ const Macros = (props) => {
     }
   };
 
-  // function to append macros to recipe
+  // function to append macro values to recipe
   const addMacros = async () => {
     try {
       const res = await fetch(
@@ -90,7 +90,7 @@ const Macros = (props) => {
           body: JSON.stringify({
             fields: {
               meal: currentName,
-              ingredients: "ingredient",
+              ingredients: currentIngredients + ", " + props.ingredientName,
               cal: sendCal.toString(),
               pro: sendPro.toString(),
               fat: sendFat.toString(),
@@ -143,27 +143,22 @@ const Macros = (props) => {
           })}
         </select>
         <div className="row">
-          <button className="col" onClick={addMacros}>
+          <button
+            className="col"
+            onClick={addMacros}
+            onMouseEnter={handleMouseOver}
+          >
             add to recipe
           </button>
           {/* noteworthy code: running function on mouseEnter to get around the state being the previous state */}
           <button
             className="col"
-            onClick={addShit}
+            onClick={() => console.log(currentIngredients)}
             onMouseEnter={handleMouseOver}
           >
             cancel/ test
           </button>
-          <button
-            onClick={() =>
-              console.log(
-                `${currentName} ${currentCal} ${props.calState} parseint: ${
-                  parseInt(currentCal) + parseInt(props.calState)
-                }
-                )`
-              )
-            }
-          >
+          <button onClick={() => console.log(currentIngredients)}>
             test option value
           </button>
         </div>
