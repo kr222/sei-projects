@@ -31,44 +31,6 @@ const RecipeMeal = (props) => {
     }
   };
 
-  // function to update individual recipe (attach it back to onclick for edit)
-  const updateMeal = async () => {
-    try {
-      const res = await fetch(
-        "https://api.airtable.com/v0/appeKmMdDs8azWyPx/recipes/" + props.id,
-        {
-          method: "PATCH",
-          headers: {
-            Authorization:
-              "Bearer patnEBL5ICNyKDzQJ.7935cda5b01609b4bffa30b86e6d9e365a035dc1184d5fb2070c331817a54410",
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            fields: {
-              meal: "Overnight oats",
-              ingredients: "oats, milk, honey",
-              cal: "300",
-              pro: "34",
-              fat: "12",
-              carb: "20",
-            },
-          }),
-        }
-      );
-
-      if (res.ok) {
-        const data = await res.json();
-        console.log(`Meal updated successfully`);
-        props.getRecipes();
-        // setShowEdit(false);
-      }
-    } catch (error) {
-      if (error.name !== "AbortError") {
-        console.log(error.message);
-      }
-    }
-  };
-
   // declaring a propped string of ingredients as a const to split it into an array for mapping
   const dog = props.recipeIngredients.split(",");
 
@@ -99,7 +61,12 @@ const RecipeMeal = (props) => {
         <h1 className="col-sm-2">{props.recipeFat}</h1>
         <h1 className="col-sm-2">{props.recipeCarb}</h1>
         {showEdit && (
-          <EditMacros setShowEdit={setShowEdit} deleteRecipe={deleteRecipe} />
+          <EditMacros
+            setShowEdit={setShowEdit}
+            deleteRecipe={deleteRecipe}
+            getRecipes={props.getRecipes}
+            id={props.id}
+          />
         )}
 
         <div className="col-sm-6"></div>
