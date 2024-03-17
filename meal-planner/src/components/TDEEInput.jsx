@@ -62,7 +62,7 @@ const TDEEInput = (props) => {
       <label className="col-sm-10">{props.macro}</label>
 
       <input
-        className="col-sm-5"
+        className="col-sm-8 tdee-input"
         placeholder={props.macro}
         defaultValue={
           props.caloriesValue ||
@@ -77,7 +77,9 @@ const TDEEInput = (props) => {
           props.handleCarbsChange
         }
       ></input>
-      <button onClick={updateMacros}>{props.unit}</button>
+      <button id="tdee-button" onClick={updateMacros}>
+        {props.unit}
+      </button>
     </div>
   );
 };

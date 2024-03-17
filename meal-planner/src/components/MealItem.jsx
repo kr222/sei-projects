@@ -5,6 +5,7 @@ import { useState } from "react";
 
 const MealItem = (props) => {
   const [itemDisplay, setItemDisplay] = useState("meal");
+  const [showEdit, setShowEdit] = useState(false);
 
   // const [monBrekInput, setMonBrekInput] = useState();
   // const [tueBrekInput, setTueBrekInput] = useState();
@@ -55,21 +56,21 @@ const MealItem = (props) => {
 
   const handleClick = () => {
     console.log(`hi ${dayMeals}`);
-    props.setShowEdit(true);
+    setShowEdit(true);
   };
-
+  useEffect(() => setItemDisplay(dayMeals), [dayMeals]);
   return (
     <>
       <button
-        className="col-sm-12"
+        className="col-sm-12 meal-button"
         onMouseEnter={handleMouseEnter}
         onClick={handleClick}
         onMouseLeave={handleMouseLeave}
       >
         {itemDisplay}
       </button>
-      <button>button that does nothing</button>
-      {props.showEdit && (
+
+      {showEdit && (
         <EditMeal
           getMeals={props.getMeals}
           handleMonBrekInput={props.handleMonBrekInput}
@@ -94,6 +95,7 @@ const MealItem = (props) => {
           handleSatDinInput={props.handleSatDinInput}
           handleSunDinInput={props.handleSunDinInput}
           updateMeals={props.updateMeals}
+          setShowEdit={setShowEdit}
         ></EditMeal>
       )}
     </>

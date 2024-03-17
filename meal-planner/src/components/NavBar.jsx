@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 
 const NavBar = () => {
   return (
-    <nav>
+    <nav className="navbar row">
       <ul>
         <li>
           <NavLink

@@ -5,7 +5,6 @@ import "../index.css";
 
 const WeekPlan = () => {
   useEffect(() => getMeals, []);
-  const [showEdit, setShowEdit] = useState();
 
   const [meals, setMeals] = useState("");
   const [monBrek, setMonBrek] = useState("");
@@ -230,10 +229,8 @@ const WeekPlan = () => {
       );
 
       if (res.ok) {
-        const data = await res.json();
         console.log(`Meal updated successfully`);
         getMeals();
-        setShowEdit(false);
       }
     } catch (error) {
       if (error.name !== "AbortError") {
@@ -250,257 +247,218 @@ const WeekPlan = () => {
 
   return (
     <>
-      <div>Week Plan</div>
-      <table>
-        <tbody>
-          <tr className="row" id="day-row">
-            <th className="col">mon</th>
-            <th className="col">tue</th>
-            <th className="col">wed</th>
-            <th className="col">thu</th>
-            <th className="col">fri</th>
-            <th className="col">sat</th>
-            <th className="col">sun</th>
-          </tr>
-          <tr className="row" id="breakfast-row">
-            <td className="col" id="mondayB">
-              <MealItem
-                monBrek={monBrek}
-                getMeals={getMeals}
-                updateMeals={updateMeals}
-                handleMonBrekInput={handleMonBrekInput}
-                monBrekInput={monBrekInput}
-                showEdit={showEdit}
-                setShowEdit={setShowEdit}
-              />
-            </td>
-            <td className="col" id="tuesdayB">
-              <MealItem
-                tueBrek={tueBrek}
-                getMeals={getMeals}
-                updateMeals={updateMeals}
-                handleTueBrekInput={handleTueBrekInput}
-                tueBrekInput={tueBrekInput}
-                showEdit={showEdit}
-                setShowEdit={setShowEdit}
-              />
-            </td>
-            <td className="col" id="wednesdayB">
-              <MealItem
-                wedBrek={wedBrek}
-                getMeals={getMeals}
-                updateMeals={updateMeals}
-                handleWedBrekInput={handleWedBrekInput}
-                wedBrekInput={wedBrekInput}
-                showEdit={showEdit}
-                setShowEdit={setShowEdit}
-              />
-            </td>
-            <td className="col" id="thursdayB">
-              <MealItem
-                thuBrek={thuBrek}
-                getMeals={getMeals}
-                updateMeals={updateMeals}
-                handleThuBrekInput={handleThuBrekInput}
-                thuBrekInput={thuBrekInput}
-                showEdit={showEdit}
-                setShowEdit={setShowEdit}
-              />
-            </td>
-            <td className="col" id="fridayB">
-              <MealItem
-                friBrek={friBrek}
-                getMeals={getMeals}
-                updateMeals={updateMeals}
-                handleFriBrekInput={handleFriBrekInput}
-                friBrekInput={friBrekInput}
-                showEdit={showEdit}
-                setShowEdit={setShowEdit}
-              />
-            </td>
-            <td className="col" id="saturdayB">
-              <MealItem
-                satBrek={satBrek}
-                getMeals={getMeals}
-                updateMeals={updateMeals}
-                handleSatBrekInput={handleSatBrekInput}
-                satBrekInput={satBrekInput}
-                showEdit={showEdit}
-                setShowEdit={setShowEdit}
-              />
-            </td>
-            <td className="col" id="sundayB">
-              <MealItem
-                sunBrek={sunBrek}
-                getMeals={getMeals}
-                updateMeals={updateMeals}
-                handleSunBrekInput={handleSunBrekInput}
-                sunBrekInput={sunBrekInput}
-                showEdit={showEdit}
-                setShowEdit={setShowEdit}
-              />
-            </td>
-          </tr>
-          <tr className="row" id="lunch-row">
-            <td className="col" id="mondayL">
-              <MealItem
-                monLun={monLun}
-                getMeals={getMeals}
-                updateMeals={updateMeals}
-                handleMonLunInput={handleMonLunInput}
-                monLunInput={monLunInput}
-                showEdit={showEdit}
-                setShowEdit={setShowEdit}
-              />
-            </td>
-            <td className="col" id="tuesdayL">
-              <MealItem
-                tueLun={tueLun}
-                getMeals={getMeals}
-                updateMeals={updateMeals}
-                handleTueLunInput={handleTueLunInput}
-                tueLunInput={tueLunInput}
-                showEdit={showEdit}
-                setShowEdit={setShowEdit}
-              />
-            </td>
-            <td className="col" id="wednesdayL">
-              <MealItem
-                wedLun={wedLun}
-                getMeals={getMeals}
-                updateMeals={updateMeals}
-                handleWedLunInput={handleWedLunInput}
-                wedLunInput={wedLunInput}
-                showEdit={showEdit}
-                setShowEdit={setShowEdit}
-              />
-            </td>
-            <td className="col" id="thursdayL">
-              <MealItem
-                thuLun={thuLun}
-                getMeals={getMeals}
-                updateMeals={updateMeals}
-                handleThuLunInput={handleThuLunInput}
-                thuLunInput={thuLunInput}
-                showEdit={showEdit}
-                setShowEdit={setShowEdit}
-              />
-            </td>
-            <td className="col" id="fridayL">
-              <MealItem
-                friLun={friLun}
-                getMeals={getMeals}
-                updateMeals={updateMeals}
-                handleFriLunInput={handleFriLunInput}
-                friLunInput={friLunInput}
-                showEdit={showEdit}
-                setShowEdit={setShowEdit}
-              />
-            </td>
-            <td className="col" id="saturdayL">
-              <MealItem
-                satLun={satLun}
-                getMeals={getMeals}
-                updateMeals={updateMeals}
-                handleSatLunInput={handleSatLunInput}
-                satLunInput={satLunInput}
-                showEdit={showEdit}
-                setShowEdit={setShowEdit}
-              />
-            </td>
-            <td className="col" id="sundayL">
-              <MealItem
-                sunLun={sunLun}
-                getMeals={getMeals}
-                updateMeals={updateMeals}
-                handleSunLunInput={handleSunLunInput}
-                sunLunInput={sunLunInput}
-                showEdit={showEdit}
-                setShowEdit={setShowEdit}
-              />
-            </td>
-          </tr>
-          <tr className="row" id="dinner-row">
-            <td className="col" id="mondayD">
-              <MealItem
-                monDin={monDin}
-                getMeals={getMeals}
-                updateMeals={updateMeals}
-                handleMonDinInput={handleMonDinInput}
-                monDinInput={monDinInput}
-                showEdit={showEdit}
-                setShowEdit={setShowEdit}
-              />
-            </td>
-            <td className="col" id="tuesdayD">
-              <MealItem
-                tueDin={tueDin}
-                getMeals={getMeals}
-                updateMeals={updateMeals}
-                handleTueDinInput={handleTueDinInput}
-                tueDinInput={tueDinInput}
-                showEdit={showEdit}
-                setShowEdit={setShowEdit}
-              />
-            </td>
-            <td className="col" id="wednesdayD">
-              <MealItem
-                wedDin={wedDin}
-                getMeals={getMeals}
-                updateMeals={updateMeals}
-                handleWedDinInput={handleWedDinInput}
-                wedDinInput={wedDinInput}
-                showEdit={showEdit}
-                setShowEdit={setShowEdit}
-              />
-            </td>
-            <td className="col" id="thursdayD">
-              <MealItem
-                thuDin={thuDin}
-                getMeals={getMeals}
-                updateMeals={updateMeals}
-                handleThuDinInput={handleThuDinInput}
-                thuDinInput={thuDinInput}
-                showEdit={showEdit}
-                setShowEdit={setShowEdit}
-              />
-            </td>
-            <td className="col" id="fridayD">
-              <MealItem
-                friDin={friDin}
-                getMeals={getMeals}
-                updateMeals={updateMeals}
-                handleFriDinInput={handleFriDinInput}
-                friDinInput={friDinInput}
-                showEdit={showEdit}
-                setShowEdit={setShowEdit}
-              />
-            </td>
-            <td className="col" id="saturdayD">
-              <MealItem
-                satDin={satDin}
-                getMeals={getMeals}
-                updateMeals={updateMeals}
-                handleSatDinInput={handleSatDinInput}
-                satDinInput={satDinInput}
-                showEdit={showEdit}
-                setShowEdit={setShowEdit}
-              />
-            </td>
-            <td className="col" id="sundayD">
-              <MealItem
-                sunDin={sunDin}
-                getMeals={getMeals}
-                updateMeals={updateMeals}
-                handleSunDinInput={handleSunDinInput}
-                sunDinInput={sunDinInput}
-                showEdit={showEdit}
-                setShowEdit={setShowEdit}
-              />
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <div className="container-fluid">
+        <div className="row" id="day-row">
+          <div className="col">mon</div>
+          <div className="col">tue</div>
+          <div className="col">wed</div>
+          <div className="col">thu</div>
+          <div className="col">fri</div>
+          <div className="col">sat</div>
+          <div className="col">sun</div>
+        </div>
+
+        <div className="row" id="breakfast-row">
+          <br></br>
+          <div className="row seperator">Breakfast</div>
+          <div className="col" id="mondayB">
+            <MealItem
+              monBrek={monBrek}
+              getMeals={getMeals}
+              updateMeals={updateMeals}
+              handleMonBrekInput={handleMonBrekInput}
+              monBrekInput={monBrekInput}
+            />
+          </div>
+          <div className="col" id="tuesdayB">
+            <MealItem
+              tueBrek={tueBrek}
+              getMeals={getMeals}
+              updateMeals={updateMeals}
+              handleTueBrekInput={handleTueBrekInput}
+              tueBrekInput={tueBrekInput}
+            />
+          </div>
+          <div className="col" id="wednesdayB">
+            <MealItem
+              wedBrek={wedBrek}
+              getMeals={getMeals}
+              updateMeals={updateMeals}
+              handleWedBrekInput={handleWedBrekInput}
+              wedBrekInput={wedBrekInput}
+            />
+          </div>
+          <div className="col" id="thursdayB">
+            <MealItem
+              thuBrek={thuBrek}
+              getMeals={getMeals}
+              updateMeals={updateMeals}
+              handleThuBrekInput={handleThuBrekInput}
+              thuBrekInput={thuBrekInput}
+            />
+          </div>
+          <div className="col" id="fridayB">
+            <MealItem
+              friBrek={friBrek}
+              getMeals={getMeals}
+              updateMeals={updateMeals}
+              handleFriBrekInput={handleFriBrekInput}
+              friBrekInput={friBrekInput}
+            />
+          </div>
+          <div className="col" id="saturdayB">
+            <MealItem
+              satBrek={satBrek}
+              getMeals={getMeals}
+              updateMeals={updateMeals}
+              handleSatBrekInput={handleSatBrekInput}
+              satBrekInput={satBrekInput}
+            />
+          </div>
+          <div className="col" id="sundayB">
+            <MealItem
+              sunBrek={sunBrek}
+              getMeals={getMeals}
+              updateMeals={updateMeals}
+              handleSunBrekInput={handleSunBrekInput}
+              sunBrekInput={sunBrekInput}
+            />
+          </div>
+        </div>
+        <div className="row" id="lunch-row">
+          <div className="row seperator">Lunch</div>
+          <div className="col" id="mondayL">
+            <MealItem
+              monLun={monLun}
+              getMeals={getMeals}
+              updateMeals={updateMeals}
+              handleMonLunInput={handleMonLunInput}
+              monLunInput={monLunInput}
+            />
+          </div>
+          <div className="col" id="tuesdayL">
+            <MealItem
+              tueLun={tueLun}
+              getMeals={getMeals}
+              updateMeals={updateMeals}
+              handleTueLunInput={handleTueLunInput}
+              tueLunInput={tueLunInput}
+            />
+          </div>
+          <div className="col" id="wednesdayL">
+            <MealItem
+              wedLun={wedLun}
+              getMeals={getMeals}
+              updateMeals={updateMeals}
+              handleWedLunInput={handleWedLunInput}
+              wedLunInput={wedLunInput}
+            />
+          </div>
+          <div className="col" id="thursdayL">
+            <MealItem
+              thuLun={thuLun}
+              getMeals={getMeals}
+              updateMeals={updateMeals}
+              handleThuLunInput={handleThuLunInput}
+              thuLunInput={thuLunInput}
+            />
+          </div>
+          <div className="col" id="fridayL">
+            <MealItem
+              friLun={friLun}
+              getMeals={getMeals}
+              updateMeals={updateMeals}
+              handleFriLunInput={handleFriLunInput}
+              friLunInput={friLunInput}
+            />
+          </div>
+          <div className="col" id="saturdayL">
+            <MealItem
+              satLun={satLun}
+              getMeals={getMeals}
+              updateMeals={updateMeals}
+              handleSatLunInput={handleSatLunInput}
+              satLunInput={satLunInput}
+            />
+          </div>
+          <div className="col" id="sundayL">
+            <MealItem
+              sunLun={sunLun}
+              getMeals={getMeals}
+              updateMeals={updateMeals}
+              handleSunLunInput={handleSunLunInput}
+              sunLunInput={sunLunInput}
+            />
+          </div>
+        </div>
+        <div className="row" id="dinner-row">
+          <div className="row seperator">Dinner</div>
+          <div className="col" id="mondayD">
+            <MealItem
+              monDin={monDin}
+              getMeals={getMeals}
+              updateMeals={updateMeals}
+              handleMonDinInput={handleMonDinInput}
+              monDinInput={monDinInput}
+            />
+          </div>
+          <div className="col" id="tuesdayD">
+            <MealItem
+              tueDin={tueDin}
+              getMeals={getMeals}
+              updateMeals={updateMeals}
+              handleTueDinInput={handleTueDinInput}
+              tueDinInput={tueDinInput}
+            />
+          </div>
+          <div className="col" id="wednesdayD">
+            <MealItem
+              wedDin={wedDin}
+              getMeals={getMeals}
+              updateMeals={updateMeals}
+              handleWedDinInput={handleWedDinInput}
+              wedDinInput={wedDinInput}
+            />
+          </div>
+          <div className="col" id="thursdayD">
+            <MealItem
+              thuDin={thuDin}
+              getMeals={getMeals}
+              updateMeals={updateMeals}
+              handleThuDinInput={handleThuDinInput}
+              thuDinInput={thuDinInput}
+            />
+          </div>
+          <div className="col" id="fridayD">
+            <MealItem
+              friDin={friDin}
+              getMeals={getMeals}
+              updateMeals={updateMeals}
+              handleFriDinInput={handleFriDinInput}
+              friDinInput={friDinInput}
+            />
+          </div>
+          <div className="col" id="saturdayD">
+            <MealItem
+              satDin={satDin}
+              getMeals={getMeals}
+              updateMeals={updateMeals}
+              handleSatDinInput={handleSatDinInput}
+              satDinInput={satDinInput}
+            />
+          </div>
+          <div className="col" id="sundayD">
+            <MealItem
+              sunDin={sunDin}
+              getMeals={getMeals}
+              updateMeals={updateMeals}
+              handleSunDinInput={handleSunDinInput}
+              sunDinInput={sunDinInput}
+            />
+          </div>
+        </div>
+      </div>
+
       <br />
     </>
   );

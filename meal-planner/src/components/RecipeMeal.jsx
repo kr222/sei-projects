@@ -48,7 +48,9 @@ const RecipeMeal = (props) => {
       <div className="row">
         <div className="col-sm-4">
           <h3>
-            <button onClick={aaa}>{props.meal}</button>
+            <button className="recipe-meal-button" onClick={aaa}>
+              {props.meal}
+            </button>
           </h3>
           <ul style={{ marginLeft: "20px" }}>
             {dog.map((item) => {
@@ -66,9 +68,15 @@ const RecipeMeal = (props) => {
             deleteRecipe={deleteRecipe}
             getRecipes={props.getRecipes}
             id={props.id}
+            meal={props.meal}
+            recipeCal={props.recipeCal}
+            recipePro={props.recipePro}
+            recipeFat={props.recipeFat}
+            recipeCarb={props.recipeCarb}
+            dog={dog}
           />
         )}
-
+        <hr></hr>
         <div className="col-sm-6"></div>
       </div>
     </>

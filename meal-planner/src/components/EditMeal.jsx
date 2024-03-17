@@ -1,6 +1,10 @@
 import React from "react";
 
 const EditMeals = (props) => {
+  const handleClick = () => {
+    props.updateMeals();
+    props.setShowEdit(false);
+  };
   return (
     <>
       <hr></hr>
@@ -31,7 +35,9 @@ const EditMeals = (props) => {
           props.handleSunDinInput
         }
       ></input>
-      <button onClick={props.updateMeals}>save</button>
+      <button id="edit-button" onClick={handleClick}>
+        Save
+      </button>
     </>
   );
 };

@@ -124,12 +124,12 @@ const Recipes = () => {
             records: [
               {
                 fields: {
-                  meal: "hello",
-                  ingredients: "food, meat, veg",
-                  cal: "111",
-                  pro: "222",
-                  fat: "333",
-                  carb: "444",
+                  meal: "New meal",
+                  ingredients: "ingredient 1, ingredient 2",
+                  cal: "0",
+                  pro: "0",
+                  fat: "0",
+                  carb: "0",
                 },
               },
             ],
@@ -138,7 +138,6 @@ const Recipes = () => {
       );
 
       if (res.ok) {
-        const data = await res.json();
         console.log(`Recipe created successfully`);
         getRecipes();
       }
@@ -151,114 +150,108 @@ const Recipes = () => {
 
   useEffect(() => getRecipes, []);
   return (
-    <div>
-      <>
-        <div>
-          <h2>
-            <NavBar></NavBar>
-          </h2>
-          <div className="row">
-            <div className="col-sm-1 spacer"></div>
-            <div className="col-sm-2 component">
-              <button onClick={getRecipes}>Get recipes</button>
-            </div>
-            <div className="col-sm-8 component">
-              <label className="col-sm-2">weight:</label>
-              <input
-                className="col-sm-1"
-                id="ingredientWeight"
-                onChange={handleWeightChange}
-              ></input>
-              <label className="col-sm-1">g </label>
-              <div className="col-sm-1"></div>
-              <label className="col-sm-2"> ingredient: </label>
-              <input
-                className="col-sm-2"
-                id="ingredientThing"
-                onChange={handleIngredientChange}
-              ></input>
-              <button className="col-sm-2" onClick={getMacros}>
-                get macros
-              </button>
-              <button onClick={() => setShowMacros(true)}>open sesame</button>
-              {showMacros && (
-                <Macros
-                  recipes={recipes}
-                  setShowMacros={setShowMacros}
-                  setIngredientWeight={setIngredientWeight}
-                  setIngredientThing={setIngredientThing}
-                  servingSize={servingSize}
-                  ingredientName={ingredientName}
-                  calState={calState}
-                  proState={proState}
-                  fatState={fatState}
-                  carbState={carbState}
-                  getRecipes={getRecipes}
-                ></Macros>
-              )}
-            </div>
+    <>
+      <div>
+        <div className="row">
+          <div className="col-sm-1 spacer"></div>
+          <div className="col-sm-2 component">
+            <NavBar />
+          </div>
+          <div className="col-sm-8 component">
+            <br></br>
+            <br></br>
+            <br></br>
+            <hr></hr>
+            <h2>Ingredient Macronutrients:</h2>
 
-            <div className="col-sm-1 spacer"></div>
+            <label className="col-sm-1">Weight:</label>
+            <input
+              className="col-sm-1 macro-input"
+              id="ingredientWeight"
+              onChange={handleWeightChange}
+            ></input>
+            <label className="col-sm-1">g </label>
+            <div className="col-sm-1"></div>
+            <label className="col-sm-1"> Ingredient: </label>
+            <input
+              className="col-sm-2  macro-input"
+              id="ingredientThing"
+              onChange={handleIngredientChange}
+            ></input>
+
+            <button className="col-sm-2 macro-button" onClick={getMacros}>
+              Get macros
+            </button>
+            <button
+              className="macro-button"
+              onClick={() => setShowMacros(true)}
+            >
+              Open sesame
+            </button>
+            {showMacros && (
+              <Macros
+                recipes={recipes}
+                setShowMacros={setShowMacros}
+                setIngredientWeight={setIngredientWeight}
+                setIngredientThing={setIngredientThing}
+                servingSize={servingSize}
+                ingredientName={ingredientName}
+                ingredientWeight={ingredientWeight}
+                calState={calState}
+                proState={proState}
+                fatState={fatState}
+                carbState={carbState}
+                getRecipes={getRecipes}
+              ></Macros>
+            )}
+            <hr></hr>
           </div>
 
-          <div className="row">
-            <br />
-            <div className="col-sm-1 spacer"></div>
-            <div className="col-sm-2 component">
-              <button
-                onClick={() =>
-                  alert(
-                    "PEBKAC: Make sure the weight is a number in grams and/or the ingredient a real thing"
-                  )
-                }
-              >
-                test input
-              </button>
-              <br></br>
-              <br></br>
-              <p>
-                test area:
-                <br />
-                {recipeStatus && recipes[0].fields.ingredients.split(",")}
-              </p>
-
-              <button onClick={createRecipe}>create test recipe</button>
-            </div>
-            <div className="col-sm-8 component">
-              <div className="row">
-                <div className="row">
-                  <h4 className="col-sm-4">Meal</h4>
-                  <h4 className="col-sm-2">Calories (cal)</h4>
-                  <h4 className="col-sm-2">Protein (g)</h4>
-                  <h3 className="col-sm-2">Fats (g)</h3>
-                  <h3 className="col-sm-2">Carbs (g)</h3>
-                  <hr></hr>
-                </div>
-
-                {recipeStatus &&
-                  recipes.map((item) => {
-                    return (
-                      <RecipeMeal
-                        key={item.id}
-                        id={item.id}
-                        getRecipes={getRecipes}
-                        meal={item.fields.meal}
-                        recipeIngredients={item.fields.ingredients}
-                        recipeCal={item.fields.cal}
-                        recipePro={item.fields.pro}
-                        recipeFat={item.fields.fat}
-                        recipeCarb={item.fields.carb}
-                      ></RecipeMeal>
-                    );
-                  })}
-              </div>
-            </div>
-
-            <div className="col-sm-1 spacer"></div>
-          </div>
+          <div className="col-sm-1 spacer"></div>
         </div>
-      </>
-    </div>
+
+        <div className="row">
+          <br />
+          <div className="col-sm-1 spacer"></div>
+          <div className="col-sm-2 component">
+            <button className="new-recipe-button" onClick={createRecipe}>
+              Create new recipe
+            </button>
+          </div>
+          <div className="col-sm-8 component">
+            <div className="row">
+              <div className="row">
+                <h4 className="col-sm-4">Meal</h4>
+                <h4 className="col-sm-2">Calories (cal)</h4>
+                <h4 className="col-sm-2">Protein (g)</h4>
+                <h3 className="col-sm-2">Fats (g)</h3>
+                <h3 className="col-sm-2">Carbs (g)</h3>
+                <hr></hr>
+              </div>
+
+              {recipeStatus &&
+                recipes.map((item) => {
+                  return (
+                    <RecipeMeal
+                      key={item.id}
+                      id={item.id}
+                      getRecipes={getRecipes}
+                      meal={item.fields.meal}
+                      recipeIngredients={item.fields.ingredients}
+                      recipeCal={item.fields.cal}
+                      recipePro={item.fields.pro}
+                      recipeFat={item.fields.fat}
+                      recipeCarb={item.fields.carb}
+                    ></RecipeMeal>
+                  );
+                })}
+            </div>
+          </div>
+
+          <div className="col-sm-1 spacer"></div>
+        </div>
+      </div>
+    </>
   );
 };
 

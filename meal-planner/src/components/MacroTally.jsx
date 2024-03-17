@@ -6,10 +6,14 @@ const MacroTally = () => {
       <div>Macro Tally</div>
       <table>
         <tbody>
-          <tr>
-            <td>asdfasdfasdfas</td>
-            <td>asdfasdfasdfas</td>
-            <td>asdfasdfasdfas</td>
+          <tr className="row">
+            <td className="col">asdfasdasdfas</td>
+            <td className="col">asdfasdasdfad</td>
+            <td className="col">asdfasdasdfsd</td>
+            <td className="col">asdfasdasdasd</td>
+            <td className="col">asdfasdasfasd</td>
+            <td className="col">asdfasdadfasd</td>
+            <td className="col">asdfasdsdfasd</td>
           </tr>
         </tbody>
       </table>

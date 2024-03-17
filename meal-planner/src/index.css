@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Hahmlet:wght@100..900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap");
 * {
   box-sizing: border-box;
 }
@@ -9,8 +9,10 @@ html {
 }
 
 body {
+  font-family: "Oxygen", sans-serif;
   margin: 0;
-  background-color: whitesmoke;
+  background-color: #072243;
+  color: white;
 }
 
 .centered {
@@ -21,7 +23,8 @@ body {
   align-items: center;
 }
 
-th,
+/* icebox item */
+/* th,
 td {
   border: black;
   border-style: solid;
@@ -29,9 +32,169 @@ td {
   border-radius: 6%;
   margin: 10px;
   padding: 5px;
-}
+} */
 
-.spacer,
+/* borders for debugging layout */
+/* .spacer,
 .component {
   border: 2px solid skyblue;
+} */
+
+.meal-button {
+  background-color: #fdf5e2;
+  font-family: "Merriweather", serif;
+  font-size: 1.5em;
+  height: 7rem;
+  border-style: solid;
+  border-width: 1px 7px 5px 1px;
+  border-radius: 6%;
+  margin: 10px;
+  padding: 5px;
+}
+
+.recipe-meal-button {
+  background-color: #fdf5e2;
+  font-family: "Merriweather", serif;
+  font-size: 1em;
+  height: 5rem;
+  width: 15rem;
+  border-style: solid;
+  border-width: 1px 7px 5px 1px;
+  border-radius: 6%;
+  margin: 10px;
+  padding: 5px;
+}
+.new-recipe-button {
+  background-color: #d7f42f;
+  font-family: "Merriweather", serif;
+  font-size: 1.3em;
+  height: 5rem;
+  width: 14rem;
+  border-style: solid;
+  border-width: 1px 7px 5px 1px;
+  border-radius: 6%;
+  margin: 10px;
+  padding: 5px;
+}
+
+.macro-button {
+  background-color: #fdf5e2;
+  font-family: "Merriweather", serif;
+  font-size: 1em;
+  height: 3rem;
+  width: 15rem;
+  border-style: solid;
+  border-width: 1px 7px 5px 1px;
+  border-radius: 6%;
+  margin: 10px;
+  padding: 5px;
+}
+
+select {
+  padding: 10px;
+  border-radius: 3%;
+  margin-left: 0.7rem;
+}
+
+.seperator {
+  border: 2px solid black;
+  border-radius: 3%;
+  color: black;
+  background-color: #ffc287;
+  font-family: "Merriweather", serif;
+  font-size: 1.2em;
+  margin-left: 1rem;
+  margin-right: 10rem;
+}
+
+.macro-input {
+  padding: 7px;
+  border-radius: 3%;
+}
+
+.navbar {
+  height: 5rem;
+  background-color: #ed602d;
+  border: 1px solid black;
+  border-style: solid;
+  border-width: 1px 7px 5px 1px;
+  border-radius: 2%;
+  margin-bottom: 2rem;
+}
+.navbar nav {
+  height: 100%;
+}
+.navbar ul {
+  height: 100%;
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+}
+.navbar li {
+  margin-left: 1.4rem;
+  margin-right: 1.7rem;
+  width: 6rem;
+  font-family: "Merriweather", serif;
+  font-weight: 300;
+  font-size: 1.7em;
+}
+.navbar a {
+  color: white;
+  text-decoration: none;
+}
+.navbar a:hover,
+.navbar a:active,
+.navbar a.active {
+  color: whitesmoke;
+  padding-bottom: 0.25rem;
+  border-bottom: 4px solid whitesmoke;
+}
+
+.tdee-input {
+  padding: 0rem;
+  font-family: "Merriweather", serif;
+  font-size: 1.5em;
+}
+
+#tdee-button {
+  padding: 0.5rem;
+  width: 5rem;
+  background-color: #fdf5e2;
+  font-family: "Merriweather", serif;
+  font-size: 1em;
+  border-style: solid;
+  border-width: 1px 7px 5px 1px;
+  border-radius: 6%;
+  height: 3rem;
+  padding: 5px;
+}
+
+#edit-button {
+  padding: 0.5rem;
+  width: 6.8rem;
+  background-color: #fdf5e2;
+  font-family: "Merriweather", serif;
+  font-size: 1em;
+  border-style: solid;
+  border-width: 1px 7px 5px 1px;
+  border-radius: 6%;
+  height: 2.5rem;
+  padding: 5px;
+}
+#day-row {
+  background-color: #0e5385;
+  border: 1px solid black;
+  border-style: solid;
+  border-width: 1px 7px 5px 1px;
+  border-radius: 2%;
+  height: 4.8rem;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  font-family: "Merriweather", serif;
+  font-weight: 500;
+  font-size: 2em;
 }
