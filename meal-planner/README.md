@@ -19,6 +19,9 @@ Keep track of your Total Daily Energy Expenditure(TDEE), plan your meals for the
 - Editing a recipe in the recipe list
   ![Edit recipe](https://github.com/kr222/sei-projects/assets/59068114/8aa2e887-6350-4c77-8dae-9acd445d405a)
 
+- Wireframe
+  ![wireframe](https://github.com/kr222/sei-projects/assets/59068114/bddae465-1268-4a4a-b881-6b23b856d486)
+
 ## Technologies Used
 
 - HTML
@@ -28,8 +31,6 @@ Keep track of your Total Daily Energy Expenditure(TDEE), plan your meals for the
 - Bootstrap
 
 ## Getting Started
-
-> Link to launch app goes here
 
 1. The user starts at the "Weekly meal planner" page, where planned meals for breakfast, lunch and dinner are displayed for all days of the week
 2. [Calculate your TDEE](https://tdeecalculator.net/), then insert the required macronutrient values into the TDEE display on the left. Click the button on the right of the input to save
