@@ -65,7 +65,7 @@ Keep track of your Total Daily Energy Expenditure(TDEE), plan your meals for the
 
 ### Noteworthy code
 
-- <WeekPlan.jsx /> line 14-62 :
+- `<WeekPlan.jsx />` line 14-62 :
 
 ```
 const [myMentalState, setMyMentalState] = useState('becoming insane')
@@ -76,16 +76,34 @@ takeNap(e.target.value)
 ```
 
 line 269-464:
-I HAVE 105 PROPS AND 21 LIFTS HERE
 
-- <EditMeal.jsx /> line 19-40 :
+```
+props={I HAVE 105 PROPS HERE}
+lifts={21 OF THEM ARE LIFTS}
 
-`this || that || the other`
+```
 
-- <MealItem.jsx> line 81-103:
+- `<EditMeal.jsx />` line 19-40 :
 
-  props to me for `props.proppingProps`
+```
+this ||
+that ||
+the other
+```
 
-- <Macros.jsx> line 96-102:
+- `<MealItem.jsx>` line 81-103:
 
-`JSON.stringify(thing.toString())`
+```
+const prop=(props)=>{
+  props.proppingProps
+}
+
+```
+
+- `<Macros.jsx>` line 96-102:
+
+```
+JSON.stringify(
+    thing.toString()
+    )
+```
