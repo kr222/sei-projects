@@ -14,8 +14,7 @@ const RecipeMeal = (props) => {
         {
           method: "DELETE",
           headers: {
-            Authorization:
-              "Bearer patnEBL5ICNyKDzQJ.7935cda5b01609b4bffa30b86e6d9e365a035dc1184d5fb2070c331817a54410",
+            Authorization: import.meta.env.VITE_AIRTABLE_TOKEN,
           },
         }
       );
@@ -53,7 +52,7 @@ const RecipeMeal = (props) => {
             </button>
           </h3>
 
-          <div class="container">
+          <div className="container">
             <section>
               <div>
                 <ul>

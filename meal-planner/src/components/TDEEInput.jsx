@@ -9,8 +9,7 @@ const TDEEInput = (props) => {
         {
           method: "PATCH",
           headers: {
-            Authorization:
-              "Bearer patnEBL5ICNyKDzQJ.7935cda5b01609b4bffa30b86e6d9e365a035dc1184d5fb2070c331817a54410",
+            Authorization: import.meta.env.VITE_AIRTABLE_TOKEN,
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
