@@ -83,6 +83,8 @@ lifts={21 OF THEM ARE LIFTS}
 
 ```
 
+---
+
 - `<EditMeal.jsx />` line 19-40 :
 
 ```
@@ -91,7 +93,9 @@ that ||
 the other
 ```
 
-- `<MealItem.jsx>` line 81-103:
+---
+
+- `<MealItem.jsx />` line 81-103:
 
 ```
 const prop=(props)=>{
@@ -100,7 +104,9 @@ const prop=(props)=>{
 
 ```
 
-- `<Macros.jsx>` line 96-102:
+---
+
+- `<Macros.jsx />` line 96-102:
 
 ```
 JSON.stringify(
