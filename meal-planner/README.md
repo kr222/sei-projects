@@ -60,3 +60,32 @@ Keep track of your Total Daily Energy Expenditure(TDEE), plan your meals for the
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes
 - https://react.dev/reference/react-dom/components/option
+
+## Presentation notes
+
+### Noteworthy code
+
+- <WeekPlan.jsx />
+
+line 14-62 :
+
+const [myMentalState, setMyMentalState] = useState('becoming insane')
+
+const handleSanity = (e) => {
+takeNap(e.target.value)
+}
+
+line 269-464:
+I HAVE 105 PROPS AND 21 LIFTS HERE
+
+- <EditMeal.jsx /> line 19-40 :
+
+this || that || the other
+
+- <MealItem.jsx>
+
+  props to me for props.proppingProps
+
+- <Macros.jsx> line 96-102:
+
+JSON.stringify(thing.toString())
