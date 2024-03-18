@@ -4,7 +4,20 @@ Keep track of your Total Daily Energy Expenditure(TDEE), plan your meals for the
 
 ## Screenshots
 
-> Screenshots with descriptions go here
+- Weekly meal planner
+  ![Planner](https://github.com/kr222/sei-projects/assets/59068114/68a4b522-5a09-4270-8297-adce0e75e645)
+
+- Editing a meal in the planner
+  ![Edit meal](https://github.com/kr222/sei-projects/assets/59068114/12f66e6f-4c9f-43e6-a17d-0b7383b679a7)
+
+- Recipe list with macronutrients
+  ![Recipes](https://github.com/kr222/sei-projects/assets/59068114/628dff53-5d46-4b99-9d22-7fd012bc14c5)
+
+- Getting ingredient macronutrient information
+  ![Get macros](https://github.com/kr222/sei-projects/assets/59068114/03ab61c3-31bd-427f-952c-d807659f5fb4)
+
+- Editing a recipe in the recipe list
+  ![Edit recipe](https://github.com/kr222/sei-projects/assets/59068114/8aa2e887-6350-4c77-8dae-9acd445d405a)
 
 ## Technologies Used
 
