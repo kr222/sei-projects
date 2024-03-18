@@ -65,9 +65,7 @@ Keep track of your Total Daily Energy Expenditure(TDEE), plan your meals for the
 
 ### Noteworthy code
 
-- <WeekPlan.jsx />
-
-line 14-62 :
+- <WeekPlan.jsx /> line 14-62 :
 
 ```const [myMentalState, setMyMentalState] = useState('becoming insane')
 
@@ -83,9 +81,9 @@ I HAVE 105 PROPS AND 21 LIFTS HERE
 
 `this || that || the other`
 
-- <MealItem.jsx>
+- <MealItem.jsx> line 81-103:
 
-  props to me for props.proppingProps
+  props to me for `props.proppingProps`
 
 - <Macros.jsx> line 96-102:
 
