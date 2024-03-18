@@ -4,9 +4,13 @@ import MealItem from "./MealItem";
 import "../index.css";
 
 const WeekPlan = () => {
+  // fetch data from airtable on mount
   useEffect(() => getMeals, []);
 
+  // state for storing entire table fetched from airtable
   const [meals, setMeals] = useState("");
+
+  // states for each day's meals
   const [monBrek, setMonBrek] = useState("");
   const [tueBrek, setTueBrek] = useState("");
   const [wedBrek, setWedBrek] = useState("");
@@ -31,6 +35,7 @@ const WeekPlan = () => {
   const [satDin, setSatDin] = useState("");
   const [sunDin, setSunDin] = useState("");
 
+  // function to set every single meal using data fetched from airtable
   const setAllMeals = () => {
     setMonBrek(meals[0].fields.mon);
     setTueBrek(meals[0].fields.tue);
@@ -59,6 +64,7 @@ const WeekPlan = () => {
     console.log(`Meals assigned to days successfully`);
   };
 
+  // function to get the entire week's meal plan from airtable
   const getMeals = async () => {
     try {
       const res = await fetch(
@@ -84,6 +90,7 @@ const WeekPlan = () => {
     }
   };
 
+  // states for use in a function that updates each day's meal
   const [monBrekInput, setMonBrekInput] = useState();
   const [tueBrekInput, setTueBrekInput] = useState();
   const [wedBrekInput, setWedBrekInput] = useState();
@@ -108,6 +115,7 @@ const WeekPlan = () => {
   const [satDinInput, setSatDinInput] = useState();
   const [sunDinInput, setSunDinInput] = useState();
 
+  // event handlers for handling input changes in child <MealItem.jsx>
   const handleMonBrekInput = (e) => {
     setMonBrekInput(e.target.value);
   };
@@ -174,6 +182,7 @@ const WeekPlan = () => {
     setSunDinInput(e.target.value);
   };
 
+  // function to PATCH weekly meal plan
   const updateMeals = async () => {
     try {
       const res = await fetch(
@@ -239,6 +248,7 @@ const WeekPlan = () => {
     }
   };
 
+  // set all meal states when data is successfully "GOT" from airtable and contains data
   useEffect(() => {
     if (meals.length > 0) {
       setAllMeals();

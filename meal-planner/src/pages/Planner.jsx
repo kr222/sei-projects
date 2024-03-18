@@ -1,5 +1,4 @@
 import React from "react";
-import MacroTally from "../components/MacroTally";
 import TDEEDisplay from "../components/TDEEDisplay";
 import WeekPlan from "../components/WeekPlan";
 import NavBar from "../components/NavBar";
@@ -25,10 +24,7 @@ const Planner = () => {
           <br />
           <div className="col-sm-1 spacer"></div>
           <div className="col-sm-2 component"></div>
-          <div className="col-sm-8 component">
-            {/* icebox item */}
-            {/* <MacroTally></MacroTally> */}
-          </div>
+          <div className="col-sm-8 component"></div>
           <div className="col-sm-1 spacer"></div>
         </div>
       </div>

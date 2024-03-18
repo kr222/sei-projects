@@ -13,6 +13,7 @@ const Macros = (props) => {
   const handleChange = () => {
     fetchRecipe();
   };
+
   // update macros to true current values
   const handleMouseOver = () => {
     setCurrentName(currentName);
@@ -107,7 +108,6 @@ const Macros = (props) => {
         );
 
         if (res.ok) {
-          const data = await res.json();
           console.log(`Macros updated successfully`);
           props.getRecipes();
         }

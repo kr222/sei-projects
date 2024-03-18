@@ -2,17 +2,20 @@ import React, { useEffect, useState } from "react";
 import TDEEInput from "./TDEEInput";
 
 const TDEEDisplay = () => {
+  //states for storing fetched macro values from airtable
   const [macros, setMacros] = useState([]);
   const [caloriesValue, setCaloriesValue] = useState("");
   const [proteinValue, setProteinValue] = useState("");
   const [fatsValue, setFatsValue] = useState("");
   const [carbsValue, setCarbsValue] = useState("");
 
+  // states for sending updated macro values to airtable for PATCH (lifted from <TDEEInput.jsx>)
   const [caloriesState, setCaloriesState] = useState("");
   const [proteinState, setProteinState] = useState("");
   const [fatsState, setFatsState] = useState("");
   const [carbsState, setCarbsState] = useState("");
 
+  //event handlers for handling input change from child <TDEEInput.jsx>
   const handleCaloriesChange = (e) => {
     setCaloriesState(e.target.value);
   };
@@ -26,8 +29,10 @@ const TDEEDisplay = () => {
     setCarbsState(e.target.value);
   };
 
+  //get TDEE macros from airtable on mount
   useEffect(() => getMacros, []);
 
+  // function to GET TDEE macro values from airtable
   const getMacros = async () => {
     try {
       const res = await fetch(
@@ -55,6 +60,8 @@ const TDEEDisplay = () => {
     }
   };
 
+  // sets TDEE macro value states using data fetched from airtable to prop down into <TDEEInput.jsx>, so that the defaulValue of the inputs can be the fetched data.
+  // it is named "send" becase setMacros already exists in the useState
   const sendMacros = () => {
     setCaloriesValue(macros[0].fields.value);
     setProteinValue(macros[1].fields.value);
@@ -63,6 +70,7 @@ const TDEEDisplay = () => {
     console.log(`TDEE fields populated successfully`);
   };
 
+  //runs the above ^ function when data is successfully fetched and the macros state contains data
   useEffect(() => {
     if (macros.length > 0) {
       sendMacros();

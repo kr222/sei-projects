@@ -2,12 +2,12 @@ import React, { useState } from "react";
 
 const EditMacros = (props) => {
   //states and handlers for editing recipe details
-  const [mealName, setMealName] = useState("New Meal");
-  const [ingredients, setIngredients] = useState("ingredient 1, ingredient 2");
-  const [cal, setCal] = useState("0");
-  const [pro, setPro] = useState("0");
-  const [fat, setFat] = useState("0");
-  const [carb, setCarb] = useState("0");
+  const [mealName, setMealName] = useState(props.meal);
+  const [ingredients, setIngredients] = useState(props.dog + ",");
+  const [cal, setCal] = useState(props.recipeCal);
+  const [pro, setPro] = useState(props.recipePro);
+  const [fat, setFat] = useState(props.recipeFat);
+  const [carb, setCarb] = useState(props.recipeCarb);
 
   const handleMealNameChange = (e) => {
     setMealName(e.target.value);
@@ -65,7 +65,6 @@ const EditMacros = (props) => {
         );
 
         if (res.ok) {
-          // const data = await res.json();
           console.log(`Meal updated successfully`);
           props.getRecipes();
           props.setShowEdit(false);
@@ -80,54 +79,11 @@ const EditMacros = (props) => {
     }
   };
 
-  // // function to get macros of ingredients from nutrition api
-  // const getMacros = async () => {
-  //   // constraints so the api doesn't get a bad request
-  //   if (
-  //     !isNaN(ingredientWeight) &&
-  //     ingredientWeight > 0 &&
-  //     ingredientWeight <= 2000 &&
-  //     ingredientThing.length > 0 &&
-  //     ingredientThing.length <= 50
-  //   ) {
-  //     try {
-  //       const res = await fetch(
-  //         "https://api.api-ninjas.com/v1/nutrition?query=" +
-  //           ingredientWeight +
-  //           "g " +
-  //           ingredientThing,
-  //         {
-  //           method: "GET",
-  //           headers: {
-  //             "X-Api-Key": "jzDvM+Jee+QCOf8FQ1GVgQ==CaAwGRMGezUShxNa",
-  //           },
-  //         }
-  //       );
-
-  //       if (res.ok) {
-  //         const data = await res.json();
-  //         console.log(data[0]);
-  //         // setServingSize(data[0].serving_size_g);
-  //         // setIngredientName(data[0].name);
-  //         // setCalState(data[0].calories);
-  //         // setProState(data[0].protein_g);
-  //         // setFatState(data[0].fat_total_g);
-  //         // setCarbState(data[0].carbohydrates_total_g);
-  //         // setShowMacros(true);
-  //       }
-  //     } catch (error) {
-  //       if (error.name !== "AbortError") {
-  //         console.log(error.message);
-  //       }
-  //     }
-  //   } else {
-  //     alert(
-  //       "PEBKAC: Please ensure the weight is a number in grams and/or the ingredient a real thing"
-  //     );
-  //   }
-  // };
   return (
     <>
+      <br></br>
+      <br></br>
+      <br></br>
       <div className="row">
         <label className="col-sm-4">Name: </label>
         <input
@@ -155,33 +111,43 @@ const EditMacros = (props) => {
         <input
           className="col-sm-2"
           onChange={handleCalChange}
-          defaultValue={props.recipeCal}
+          defaultValue={cal}
+          value={cal}
         ></input>
         <input
           className="col-sm-2"
           onChange={handleProChange}
-          defaultValue={props.recipePro}
+          defaultValue={pro}
+          value={pro}
         ></input>
         <input
           className="col-sm-2"
           onChange={handleFatChange}
-          defaultValue={props.recipeFat}
+          defaultValue={fat}
+          value={fat}
         ></input>
         <input
           className="col-sm-2"
           onChange={handleCarbChange}
-          defaultValue={props.recipeCarb}
+          defaultValue={carb}
+          value={carb}
         ></input>
       </div>
       <hr></hr>
       <br></br>
-      <button className="col-sm-9" onClick={handleSave}>
-        save
-      </button>
-      <div className="col-sm-1"></div>
-      <button className="col-sm-2" onClick={() => props.deleteRecipe()}>
-        delete
-      </button>
+      <div className="centered">
+        <button className="col-sm-9 macro-button" onClick={handleSave}>
+          Save
+        </button>
+        <div className="col-sm-1"></div>
+        <button
+          className="col-sm-2 delete-button"
+          onClick={() => props.deleteRecipe()}
+        >
+          Delete
+        </button>
+      </div>
+
       <hr></hr>
       <br></br>
       <br></br>

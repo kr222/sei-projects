@@ -3,10 +3,10 @@ import { useState } from "react";
 import EditMacros from "./EditMacros";
 
 const RecipeMeal = (props) => {
+  // state to show/hide recipe edit input fields
   const [showEdit, setShowEdit] = useState("");
-  const [showButton, setShowButton] = useState("");
 
-  // function to delete individual recipe
+  // function to delete individual recipe from airtable
   const deleteRecipe = async () => {
     try {
       const res = await fetch(
@@ -35,7 +35,7 @@ const RecipeMeal = (props) => {
   const dog = props.recipeIngredients.split(",");
 
   //function for hiding/showing edit fields
-  const aaa = () => {
+  const handleEditMeal = () => {
     if (!showEdit) {
       setShowEdit(true);
     } else {
@@ -48,16 +48,24 @@ const RecipeMeal = (props) => {
       <div className="row">
         <div className="col-sm-4">
           <h3>
-            <button className="recipe-meal-button" onClick={aaa}>
+            <button className="recipe-meal-button" onClick={handleEditMeal}>
               {props.meal}
             </button>
           </h3>
-          <ul style={{ marginLeft: "20px" }}>
-            {dog.map((item) => {
-              return <li key={item}>{item}</li>;
-            })}
-          </ul>
+
+          <div class="container">
+            <section>
+              <div>
+                <ul>
+                  {dog.map((item) => {
+                    return <li key={item}>{item}</li>;
+                  })}
+                </ul>
+              </div>
+            </section>
+          </div>
         </div>
+
         <h1 className="col-sm-2">{props.recipeCal} </h1>
         <h1 className="col-sm-2">{props.recipePro}</h1>
         <h1 className="col-sm-2">{props.recipeFat}</h1>
@@ -76,9 +84,10 @@ const RecipeMeal = (props) => {
             dog={dog}
           />
         )}
-        <hr></hr>
+
         <div className="col-sm-6"></div>
       </div>
+      <hr></hr>
     </>
   );
 };

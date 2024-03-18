@@ -5,6 +5,11 @@ const EditMeals = (props) => {
     props.updateMeals();
     props.setShowEdit(false);
   };
+
+  // nothing much here, just some heavy lifting going on
+  // lifting the inputs to set the state in grandparent <WeekPlan.jsx>, then running the "PATCH" function, also in grandparent <WeekPlan.jsx>
+  // then closing the edit fields by running setShowEdit(false) in parent <MealItem.jsx>
+
   return (
     <>
       <hr></hr>

@@ -1,6 +1,7 @@
 import React from "react";
 
 const TDEEInput = (props) => {
+  // function to "PATCH" TDEE macro data using newly input values
   const updateMacros = async () => {
     try {
       const res = await fetch(
@@ -48,7 +49,6 @@ const TDEEInput = (props) => {
       );
 
       if (res.ok) {
-        const data = await res.json();
         console.log(`TDEE updated successfully`);
       }
     } catch (error) {
@@ -57,6 +57,7 @@ const TDEEInput = (props) => {
       }
     }
   };
+
   return (
     <div>
       <label className="col-sm-10">{props.macro}</label>

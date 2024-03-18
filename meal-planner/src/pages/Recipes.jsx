@@ -5,6 +5,7 @@ import RecipeMeal from "../components/RecipeMeal";
 import { useState, useEffect } from "react";
 
 const Recipes = () => {
+  // state to store list of recipes fetched from airtable
   const [recipes, setRecipes] = useState("");
 
   // state to show recipes only when they are successfully fetched
@@ -17,14 +18,14 @@ const Recipes = () => {
   const [ingredientWeight, setIngredientWeight] = useState("");
   const [ingredientThing, setIngredientThing] = useState("");
 
-  // states for data fetched from nutrition api, to prop macro valuesdown to macro display
+  // states for data fetched from nutrition api, to prop macro values down to macro display
   const [servingSize, setServingSize] = useState("");
-  const [ingredientName, setIngredientName] = useState("Bread");
-  const [calState, setCalState] = useState(111);
-  const [proState, setProState] = useState(222);
+  const [ingredientName, setIngredientName] = useState("Air");
+  const [calState, setCalState] = useState(0);
+  const [proState, setProState] = useState(0);
   //     ^ ha ha   ^ ha ha ha
-  const [fatState, setFatState] = useState(333);
-  const [carbState, setCarbState] = useState(444);
+  const [fatState, setFatState] = useState(0);
+  const [carbState, setCarbState] = useState(0);
 
   // event handlers for weight and ingredient inputs
   const handleWeightChange = (e) => {
@@ -61,6 +62,7 @@ const Recipes = () => {
       }
     }
   };
+
   // function to get macros of ingredients from nutrition api
   const getMacros = async () => {
     // constraints so the api doesn't get a bad request
@@ -148,7 +150,9 @@ const Recipes = () => {
     }
   };
 
+  // get recipe list from airtable on mount
   useEffect(() => getRecipes, []);
+
   return (
     <>
       <div>
