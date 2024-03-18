@@ -67,7 +67,8 @@ Keep track of your Total Daily Energy Expenditure(TDEE), plan your meals for the
 
 - <WeekPlan.jsx /> line 14-62 :
 
-```const [myMentalState, setMyMentalState] = useState('becoming insane')
+```
+const [myMentalState, setMyMentalState] = useState('becoming insane')
 
 const handleSanity = (e) => {
 takeNap(e.target.value)
