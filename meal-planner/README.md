@@ -69,18 +69,19 @@ Keep track of your Total Daily Energy Expenditure(TDEE), plan your meals for the
 
 line 14-62 :
 
-const [myMentalState, setMyMentalState] = useState('becoming insane')
+```const [myMentalState, setMyMentalState] = useState('becoming insane')
 
 const handleSanity = (e) => {
 takeNap(e.target.value)
 }
+```
 
 line 269-464:
 I HAVE 105 PROPS AND 21 LIFTS HERE
 
 - <EditMeal.jsx /> line 19-40 :
 
-this || that || the other
+`this || that || the other`
 
 - <MealItem.jsx>
 
@@ -88,4 +89,4 @@ this || that || the other
 
 - <Macros.jsx> line 96-102:
 
-JSON.stringify(thing.toString())
+`JSON.stringify(thing.toString())`
