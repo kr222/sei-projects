@@ -60,7 +60,7 @@ Keep track of your Total Daily Energy Expenditure(TDEE), plan your meals for the
 ### Knowledge
 
 - Desmond + TAs
-- user-language lab, <Routes />, <Route />, and <NavBar/> notes
+- user-language lab, `<Routes />`, `<Route />`, and `<NavBar/>` notes
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes
 - https://react.dev/reference/react-dom/components/option
