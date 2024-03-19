@@ -29,6 +29,7 @@ Keep track of your Total Daily Energy Expenditure(TDEE), plan your meals for the
 - JavaScript
 - React
 - Bootstrap
+- AirTable
 
 ## Getting Started
 
@@ -56,10 +57,25 @@ Keep track of your Total Daily Energy Expenditure(TDEE), plan your meals for the
 
 ## References
 
-- Desmond
+### Knowledge
+
+- Desmond + TAs
+- user-language lab, <Routes />, <Route />, and <NavBar/> notes
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes
 - https://react.dev/reference/react-dom/components/option
+
+### Resources and assets
+
+- https://fonts.google.com/
+- [List CSS styling](https://freefrontend.com/css-lists/page/2/)
+- [Food-themed favicon](https://icons-for-free.com/food+health+nutrition+orange+icon-1320168729336562544/)
+- [Wireframe](https://app.diagrams.net/)
+
+### APIs
+
+- AirTable developer documentation
+- [Macronutrients API](https://api-ninjas.com/api/nutrition)
 
 ## Presentation notes
 
